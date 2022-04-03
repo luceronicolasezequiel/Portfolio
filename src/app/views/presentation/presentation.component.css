@@ -1,0 +1,31 @@
+.background {
+  background-color: #CCEDD2;
+}
+
+.size { 
+  height: 100vh;
+  min-height: 17rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.center {
+  height: 17rem;
+  width: 25rem;
+  text-align: center;
+}
+
+.img-size {
+  height: 10rem;
+  width: 10rem;
+}
+
+.title {
+  font-family: 'Asap Condensed', sans-serif;
+}
+
+.subTitle {
+  font-family: 'Chivo', sans-serif;
+}
