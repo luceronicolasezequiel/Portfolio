@@ -22,19 +22,6 @@
   background-color: #bcdac7;
 }
 
-ul.task li {
-  margin-top: 1rem;
-}
-
-div.hability div {
-  float: left;
-  margin-right: 0.4rem;
-  margin-top: 0.3rem;
-  padding: 0.5rem 0.8rem;
-  background-color: #e0e7e0;
-  border-radius: 0.8rem;
-}
-
 @media (min-width: 480px) and (max-width: 767px) {
   .container-box {
     grid-template-columns: 1fr;

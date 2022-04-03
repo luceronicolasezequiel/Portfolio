@@ -1,0 +1,12 @@
+<div class="background">
+  <div class="container">
+    <h1 class="title">{{title}}</h1>
+    <div class="container-skill">
+      <app-hability-item
+        class="skill"
+        *ngFor="let hability of habilitys"
+        [hability]="hability"
+      ></app-hability-item>
+    </div>
+  </div>
+</div>
