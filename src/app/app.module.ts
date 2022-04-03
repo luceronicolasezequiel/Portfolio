@@ -3,10 +3,10 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PresentationComponent } from './views/presentation/presentation.component';
-import { AboutMeComponent } from './views/about-me/about-me.component';
-import { ExperienceComponent } from './views/experience/experience.component';
-import { HabilityComponent } from './views/hability/hability.component';
+import { PresentationComponent } from './components/presentation/presentation.component';
+import { AboutMeComponent } from './components/about-me/about-me.component';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { HabilityComponent } from './components/hability/hability.component';
 
 @NgModule({
   declarations: [
