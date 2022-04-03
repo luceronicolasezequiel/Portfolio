@@ -1,0 +1,254 @@
+{
+  "experiences": [
+    {
+      "experienceId": 1,
+      "position": "Full Stack Developer",
+      "organization": "WPN",
+      "period": "09/2021 - Actualidad",
+      "tasks": [
+        {
+          "taskId": 1,
+          "name": "Desarrollo de aplicativos web."
+        },
+        {
+          "taskId": 2,
+          "name": "Arquitectura de Microservicios."
+        },
+        {
+          "taskId": 3,
+          "name": "Colaboración en planificación de tareas y estimación de las mismas."
+        },
+        {
+          "taskId": 4,
+          "name": "Pruebas Automatizadas."
+        },
+        {
+          "taskId": 5,
+          "name": "Metodologías Ágiles (Scrum)."
+        }
+      ],
+      "habilitys": [
+        {
+          "habilityId": 1,
+          "name": "Angular"
+        },
+        {
+          "habilityId": 2,
+          "name": "c#"
+        },
+        {
+          "habilityId": 3,
+          "name": "Microservicios"
+        },
+        {
+          "habilityId": 4,
+          "name": "Postgres"
+        },
+        {
+          "habilityId": 5,
+          "name": "Cypress"
+        },
+        {
+          "habilityId": 6,
+          "name": "Jira"
+        },
+        {
+          "habilityId": 7,
+          "name": "Git"
+        },
+        {
+          "habilityId": 8,
+          "name": "GitLab"
+        }
+      ]
+    },
+    {
+      "experienceId": 2,
+      "position": "Full Stack Developer",
+      "organization": "Lorenzati Ruetch S.A.",
+      "period": "10/2018 - 09/2021",
+      "tasks": [
+        {
+          "taskId": 1,
+          "name": "Desarrollo de aplicativos web."
+        },
+        {
+          "taskId": 6,
+          "name": "Desarrollo de api rest."
+        },
+        {
+          "taskId": 3,
+          "name": "Colaboración en planificación de tareas y estimación de las mismas."
+        }
+      ],
+      "habilitys": [
+        {
+          "habilityId": 2,
+          "name": "c#"
+        },
+        {
+          "habilityId": 9,
+          "name": "Entity Framework"
+        },
+        {
+          "habilityId": 10,
+          "name": "DevExpress"
+        },
+        {
+          "habilityId": 11,
+          "name": "MVC"
+        },
+        {
+          "habilityId": 12,
+          "name": "Sql Server"
+        },
+        {
+          "habilityId": 13,
+          "name": "TortoiseSVN"
+        }
+      ]
+    },
+    {
+      "experienceId": 3,
+      "position": "Coordinador de Proyectos",
+      "organization": "AuMax S.R.L.",
+      "period": "10/2014 - 10/2018",
+      "tasks": [
+        {
+          "taskId": 7,
+          "name": "Cotización de Sistemas e Software."
+        },
+        {
+          "taskId": 8,
+          "name": "Mantenimiento del Sistema de Software y Base de Datos del S.G.C. de AuMax S.R.L."
+        }
+      ],
+      "habilitys": [
+        {
+          "habilityId": 14,
+          "name": "VB.NET"
+        },
+        {
+          "habilityId": 12,
+          "name": "Sql Server"
+        }
+      ]
+    },
+    {
+      "experienceId": 4,
+      "position": "Developer",
+      "organization": "AuMax S.R.L.",
+      "period": "06/2013 - 10/2014",
+      "tasks": [
+        {
+          "taskId": 9,
+          "name": "Desarrollo de aplicativos desktop."
+        },
+        {
+          "taskId": 3,
+          "name": "Colaboración en planificación de tareas y estimación de las mismas."
+        }
+      ],
+      "habilitys": [
+        {
+          "habilityId": 14,
+          "name": "VB.NET"
+        },
+        {
+          "habilityId": 9,
+          "name": "Entity Framework"
+        },
+        {
+          "habilityId": 12,
+          "name": "Sql Server"
+        }
+      ]
+    }
+  ],
+  "habilitys": [
+    {
+      "habilityId": 1,
+      "name": "Angular",
+      "icon": "devicon-angularjs-plain"
+    },
+    {
+      "habilityId": 2,
+      "name": "CSharp",
+      "icon": "devicon-csharp-plain"
+    },
+    {
+      "habilityId": 3,
+      "name": "Microservicios"
+    },
+    {
+      "habilityId": 4,
+      "name": "Postgres",
+      "icon": "devicon-postgresql-plain"
+    },
+    {
+      "habilityId": 5,
+      "name": "Cypress"
+    },
+    {
+      "habilityId": 6,
+      "name": "Jira",
+      "icon": "devicon-jira-plain"
+    },
+    {
+      "habilityId": 7,
+      "name": "Git",
+      "icon": "devicon-git-plain"
+    },
+    {
+      "habilityId": 8,
+      "name": "GitLab",
+      "icon": "devicon-gitlab-plain"
+    },
+    {
+      "habilityId": 9,
+      "name": "Entity Framework"
+    },
+    {
+      "habilityId": 10,
+      "name": "DevExpress"
+    },
+    {
+      "habilityId": 11,
+      "name": "MVC"
+    },
+    {
+      "habilityId": 12,
+      "name": "Sql Server",
+      "icon": "devicon-microsoftsqlserver-plain"
+    },
+    {
+      "habilityId": 13,
+      "name": "TortoiseSVN",
+      "icon": "devicon-tortoisegit-plain"
+    },
+    {
+      "habilityId": 14,
+      "name": "VB.NET"
+    },
+    {
+      "habilityId": 15,
+      "name": "GitHub",
+      "icon": "devicon-github-original"
+    },
+    {
+      "habilityId": 16,
+      "name": "Html5",
+      "icon": "devicon-html5-plain"
+    },
+    {
+      "habilityId": 17,
+      "name": "CSS",
+      "icon": "devicon-css3-plain"
+    },
+    {
+      "habilityId": 18,
+      "name": "JavaScript",
+      "icon": "devicon-javascript-plain"
+    }
+  ]
+}
