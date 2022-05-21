@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './components/shared/shared.module';
@@ -15,6 +16,7 @@ import { ExperienceComponent } from './components/portfolio/experience/experienc
 import { ExperienceItemComponent } from './components/portfolio/experience/experience-item/experience-item.component';
 import { HabilityComponent } from './components/portfolio/hability/hability.component';
 import { HabilityItemComponent } from './components/portfolio/hability/hability-item/hability-item.component';
+import { InterceptorService } from './services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -32,9 +34,12 @@ import { HabilityItemComponent } from './components/portfolio/hability/hability-
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     SharedModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: InterceptorService, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
