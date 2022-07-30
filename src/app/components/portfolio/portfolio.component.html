@@ -1,12 +1,12 @@
 <app-presentation
-  title="Nicolás Lucero" 
-  subTitle="Lic. en Informática"
+  [title]="personalInformation.fullName" 
+  [subTitle]="personalInformation.title"
   nameImage="developer.png">
 </app-presentation>
 <app-about-me
   title="SOBRE MI"
   nameImage="profile.jpeg"
-  description="¡Hola! Soy Nicolás Lucero, vivo en Ticino, Córdoba, Argentina. Me recibí en la carrera de Licenciatura en Informática. Tengo más de 8 años ejerciendo mi profesión, en donde tuve la posibilidad de trabajar con diferentes tecnologías. Actualmente me desempeño como Full Stack Developer. Me motiva seguir creciendo en lo profesional y personal.">
+  [description]="personalInformation.summary">
 </app-about-me>
 <app-experience
   title="EXPERIENCIA">

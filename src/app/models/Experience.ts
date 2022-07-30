@@ -1,5 +1,5 @@
-import { Hability } from "./Hability";
-import { Task } from "./Task";
+import { Hability } from "./hability";
+import { Task } from "./task";
 
 export interface Experience {
   id?: number;

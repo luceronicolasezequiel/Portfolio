@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Experience } from 'src/app/models/Experience';
+import { Experience } from 'src/app/models/experience';
 import { ExperienceService } from 'src/app/services/experience.service';
 
 @Component({
@@ -21,7 +21,7 @@ export class ExperienceComponent implements OnInit {
   }
 
   getExperiences() {
-    this.experienceService.getExperiences()
+    this.experienceService.getAll()
       .subscribe(experiences => {
         this.experiences = experiences;
       });

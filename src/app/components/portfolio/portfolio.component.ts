@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { PersonalInformation } from 'src/app/models/personal-information';
+import { PersonalInformationService } from 'src/app/services/personal-information.service';
 
 @Component({
   selector: 'app-portfolio',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PortfolioComponent implements OnInit {
 
-  constructor() { }
+  personalInformation: PersonalInformation = { fullName: '', title: '', summary: '' };
+
+  constructor(
+    private personalInformationService: PersonalInformationService
+  ) { }
 
   ngOnInit(): void {
+    this.getPersonalInformation();
+  }
+
+  getPersonalInformation() {
+    this.personalInformationService.getOne()
+      .subscribe(personalInformation => {
+        this.personalInformation = personalInformation;
+      });
   }
 
 }

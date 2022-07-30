@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
-import { Experience } from '../models/Experience';
+import { Observable } from 'rxjs';
+import { Experience } from '../models/experience';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class ExperienceService {
     private http: HttpClient
   ) { }
 
-  getExperiences(): Observable<Experience[]> {
+  getAll(): Observable<Experience[]> {
     let endpointUrl = this.apiUrl + '/getAll';
 
     return this.http.get<Experience[]>(endpointUrl);
