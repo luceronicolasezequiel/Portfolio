@@ -7,7 +7,7 @@ import { BehaviorSubject, map, Observable } from 'rxjs';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:5000/auth';
+  private apiUrl = 'http://localhost:9091/api/auth';
 
   currentUserSubject: BehaviorSubject<any>;
 
@@ -18,7 +18,9 @@ export class AuthService {
   }
 
   login(credentials: any): Observable<any> {
-    return this.http.post(this.apiUrl, credentials)
+    let endpointUrl = this.apiUrl + '/login';
+
+    return this.http.post(endpointUrl, credentials)
       .pipe(map(data => {
         sessionStorage.setItem('currentUser', JSON.stringify(data));
         this.currentUserSubject.next(data);

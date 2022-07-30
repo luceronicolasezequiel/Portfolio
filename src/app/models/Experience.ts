@@ -2,10 +2,11 @@ import { Hability } from "./Hability";
 import { Task } from "./Task";
 
 export interface Experience {
-  experienceId?: number;
+  id?: number;
   position: string;
   organization: string;
-  period: string;
+  periodFrom: string;
+  periodTo: string;
   tasks: Task[];
-  habilitys: Hability[];
+  habilities: Hability[];
 }

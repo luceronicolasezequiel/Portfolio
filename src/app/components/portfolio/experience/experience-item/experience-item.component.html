@@ -1,9 +1,9 @@
 <h2>{{experience.position}}</h2>
 <h3>{{experience.organization}}</h3>
-<h4>{{experience.period}}</h4>
+<h4>{{experience.periodFrom | date: 'MM/yyyy' : 'UTC +3'}} - {{experience.periodTo | date: 'MM/yyyy' : 'UTC +3'}}</h4>
 <ul class="task">
   <li *ngFor="let task of experience.tasks">{{task.name}}</li>
 </ul>
 <div class="hability">
-  <div *ngFor="let hability of experience.habilitys">{{hability.name}}</div>
+  <div *ngFor="let hability of experience.habilities">{{hability.name}}</div>
 </div>

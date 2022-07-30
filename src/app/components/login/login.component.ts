@@ -21,12 +21,12 @@ export class LoginComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      password: ['', [Validators.required, Validators.minLength(5)]] /*,
       deviceInfo: this.formBuilder.group({
         deviceId: ["17867868768"],
         deviceType: ["DEVICE_TYPE_ANDROID"],
         notificationToken: ["6765757eececc34"]
-      })
+      }) */
     });
 
   }

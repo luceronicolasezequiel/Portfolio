@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { Experience } from '../models/Experience';
 
 @Injectable({
@@ -8,15 +8,16 @@ import { Experience } from '../models/Experience';
 })
 export class ExperienceService {
 
-  private apiUrl = 'http://localhost:5000/experiences';
+  private apiUrl = 'http://localhost:9091/api/experience';
 
   constructor(
     private http: HttpClient
   ) { }
 
   getExperiences(): Observable<Experience[]> {
-    // example of getting list with json-server run
-    return this.http.get<Experience[]>(this.apiUrl);
+    let endpointUrl = this.apiUrl + '/getAll';
+
+    return this.http.get<Experience[]>(endpointUrl);
   }
 
 }

@@ -8,7 +8,7 @@ import { Experience } from 'src/app/models/Experience';
 })
 export class ExperienceItemComponent implements OnInit {
 
-  @Input() experience: Experience = { position: '', organization: '', period: '', tasks: [{ name: '' }], habilitys: [{ name: '' }] };
+  @Input() experience: Experience = { position: '', organization: '', periodFrom: '', periodTo: '', tasks: [{ name: '' }], habilities: [{ name: '' }] };
 
   constructor() { }
 

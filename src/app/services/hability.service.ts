@@ -8,13 +8,10 @@ import { Hability } from '../models/Hability';
 })
 export class HabilityService {
 
-  private apiUrl = 'http://localhost:5000/habilitys';
+  private apiUrl = 'http://localhost:9091/api/hability';
 
   constructor(
     private http: HttpClient
   ) { }
 
-  getHabilitys(): Observable<Hability[]> {
-    return this.http.get<Hability[]>(this.apiUrl);
-  }
 }
