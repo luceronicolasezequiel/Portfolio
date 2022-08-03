@@ -2,21 +2,23 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PersonalInformation } from '../models/personal-information';
+import { GlobalService } from './global.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PersonalInformationService {
 
-  private apiUrl = 'http://localhost:9091/api/personalInformation';
+  private API_URL = 'http://localhost:9091/api/personalInformation';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient,
+    private globalService: GlobalService
   ) { }
 
   getOne(): Observable<PersonalInformation> {
-    let endpointUrl = this.apiUrl + '/getOne';
+    let endpointUrl = this.API_URL + '/getOne';
 
-    return this.http.get<PersonalInformation>(endpointUrl);
+    return this.http.get<PersonalInformation>(endpointUrl, { headers: this.globalService.getHeadersWithOutToken() });
   }
 }

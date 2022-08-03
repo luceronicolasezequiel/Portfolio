@@ -10,7 +10,9 @@ export class ButtonComponent implements OnInit {
   @Input() nameButton = "";
   @Input() typeButton = "button";
   @Input() isDisabled = false;
-  @Input() classButton = "btn-primary btn-lg";
+  @Input() classButton = "btn btn-primary btn-lg";
+  @Input() dataBsToggle = "";
+  @Input() dataBsTarget = "";
   @Output() clickEvent = new EventEmitter();
 
   constructor() { }

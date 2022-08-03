@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+  <div class="container">
+    <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#"><img src="../assets/img/argentinaPrograma.png" width="150" height="48"></a>
+        </li>
+      </ul>
+    </div>
+    <div class="mx-auto order-0">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".dual-collapse2">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://ar.linkedin.com/in/nicolas-ezequiel-lucero?original_referer=https%3A%2F%2Fwww.google.com%2F" target="_blank">
+            <img src="../assets/img/linkedin.png" title="LinkedIn">
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/luceronicolasezequiel" target="_blank">
+            <img src="../assets/img/github.png" title="GitHub">
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://www.instagram.com/luceronicolas_/" target="_blank">
+            <img src="../assets/img/instagram.png" title="Instagram">
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link">
+            <app-button
+            *ngIf="!(isLoggedIn$ | async)"
+              textButton="Login"
+              nameButton="login"
+              typeButton="button"
+              [isDisabled]="false"
+              classButton="btn-custom"
+              dataBsToggle="modal"
+              dataBsTarget="#modalLogin">
+            </app-button>
+            <app-button
+              *ngIf="isLoggedIn$ | async"
+              textButton="Logout"
+              nameButton="logout"
+              typeButton="button"
+              [isDisabled]="false"
+              classButton="btn-custom"
+              (clickEvent)="onClickLogout()">
+            </app-button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Modal Login -->
+<app-login
+  title="Login">
+</app-login>

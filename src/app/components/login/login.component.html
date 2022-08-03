@@ -1,21 +1,24 @@
-<div class="background">
-  <div class="container">
-    <div class="container-box">
-      <div class="box">
+<div class="modal fade" id="modalLogin" tabindex="-1" aria-labelledby="modalLoginLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="titleModalLabel">{{title}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
         <form [formGroup]="form" (ngSubmit)="onLogin($event)">
-          <h1 class="title">{{title}}</h1>
           <div class="mb-3">
-            <label class="form-label" for="email">Email</label>
-            <input class="form-control" type="email" name="email" id="email"
-                   formControlName="email"
-                   [ngClass]="{'is-invalid': this.email?.invalid && (this.email?.dirty || this.email?.touched),
-                               'is-valid': !this.email?.invalid && (this.email?.dirty || this.email?.touched)}">
-            <div *ngIf="this.email?.invalid && (this.email?.dirty || this.email?.touched)">
-              <p *ngIf="email?.errors?.['required']" class="validation text-danger">
-                El email es requerido.
+            <label class="form-label" for="username">Usuario</label>
+            <input class="form-control" type="username" name="username" id="username"
+                   formControlName="username"
+                   [ngClass]="{'is-invalid': this.username?.invalid && (this.username?.dirty || this.username?.touched),
+                               'is-valid': !this.username?.invalid && (this.username?.dirty || this.username?.touched)}">
+            <div *ngIf="this.username?.invalid && (this.username?.dirty || this.username?.touched)">
+              <p *ngIf="username?.errors?.['required']" class="validation text-danger">
+                El Usuario es requerido.
               </p>
-              <p *ngIf="email?.errors?.['email']" class="validation text-danger">
-                El formato del email debe ser válido.
+              <p *ngIf="username?.errors?.['minlength']" class="validation text-danger">
+                El Usuario debe ser de 5 ó más caracteres.
               </p>
             </div>
           </div>
@@ -30,18 +33,15 @@
                 La Contraseña es requerida.
               </p>
               <p *ngIf="password?.errors?.['minlength']" class="validation text-danger">
-                La Contraseña debe ser de 8 ó más caracteres.
+                La Contraseña debe ser de 5 ó más caracteres.
               </p>
             </div>
           </div>
-          <app-button
-            textButton="Ingresar"
-            nameButton="login"
-            typeButton="submit"
-            [isDisabled]="false"
-            classButton="btn-outline-primary btn-lg">
-          </app-button>
         </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="onLogin($event)">Save changes</button>
       </div>
     </div>
   </div>

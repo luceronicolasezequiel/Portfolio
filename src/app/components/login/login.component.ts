@@ -3,46 +3,50 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 
+declare var window: any;
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  @Input() title = 'INICIAR SESIÓN';
+  @Input() title = 'Login';
 
+  formModal: any;
   form: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService,
-    private router: Router
+    private authService: AuthService
   ) {
 
     this.form = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(5)]] /*,
-      deviceInfo: this.formBuilder.group({
-        deviceId: ["17867868768"],
-        deviceType: ["DEVICE_TYPE_ANDROID"],
-        notificationToken: ["6765757eececc34"]
-      }) */
+      username: ['', [Validators.required, Validators.minLength(5)]],
+      password: ['', [Validators.required, Validators.minLength(5)]]
     });
 
   }
 
   ngOnInit(): void {
+    this.formModal = new window.bootstrap.Modal(
+      document.getElementById("modalLogin")
+    );
   }
 
-  get email() { return this.form.get('email'); }
+  get username() { return this.form.get('username'); }
   get password() { return this.form.get("password"); }
 
   onLogin(event: Event) {
     event.preventDefault; // cancel event of moment
 
-    this.authService.login(this.form.value).subscribe(data => {
-      console.log("Data: " + JSON.stringify(data));
-      this.router.navigate(['/portfolio']); // if get data, redirect to portfolio
-    });
+    this.authService.login(this.form.value).subscribe(
+      data => {
+        this.formModal.hide();
+      }, error => {
+        console.log('Hubo un error al comprobar el usuario!');
+      }
+    );
   }
+
 }

@@ -22,7 +22,7 @@
   background-color: #bcdac7;
 }
 
-@media (min-width: 480px) and (max-width: 767px) {
+@media (min-width: 280px) and (max-width: 767px) {
   .container-box {
     grid-template-columns: 1fr;
   }
