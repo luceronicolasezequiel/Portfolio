@@ -6,7 +6,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form [formGroup]="form" (ngSubmit)="onLogin($event)">
+        <form [formGroup]="form">
           <div class="mb-3">
             <label class="form-label" for="username">Usuario</label>
             <input class="form-control" type="username" name="username" id="username"
@@ -40,8 +40,23 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="onLogin($event)">Save changes</button>
+        <app-button
+          textButton="Ingresar"
+          nameButton="login"
+          typeButton="button"
+          [isDisabled]="false"
+          classButton="btn btn-dark"
+          (clickEvent)="onLogin()">
+        </app-button>
+        <app-button
+          textButton="Cancelar"
+          nameButton="cancel"
+          typeButton="button"
+          [isDisabled]="false"
+          classButton="btn btn-secondary"
+          dataBsDismiss="modal"
+          (clickEvent)="onCancel()">
+        </app-button>
       </div>
     </div>
   </div>

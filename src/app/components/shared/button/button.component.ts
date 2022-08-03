@@ -6,13 +6,14 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./button.component.css']
 })
 export class ButtonComponent implements OnInit {
-  @Input() textButton = "";
-  @Input() nameButton = "";
-  @Input() typeButton = "button";
+  @Input() textButton = '';
+  @Input() nameButton = '';
+  @Input() typeButton = 'button';
   @Input() isDisabled = false;
-  @Input() classButton = "btn btn-primary btn-lg";
-  @Input() dataBsToggle = "";
-  @Input() dataBsTarget = "";
+  @Input() classButton = 'btn btn-primary btn-lg';
+  @Input() dataBsToggle = '';
+  @Input() dataBsTarget = '';
+  @Input() dataBsDismiss = '';
   @Output() clickEvent = new EventEmitter();
 
   constructor() { }

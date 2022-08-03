@@ -37,16 +37,26 @@ export class LoginComponent implements OnInit {
   get username() { return this.form.get('username'); }
   get password() { return this.form.get("password"); }
 
-  onLogin(event: Event) {
-    event.preventDefault; // cancel event of moment
-
+  onLogin() {
     this.authService.login(this.form.value).subscribe(
       data => {
         this.formModal.hide();
+        this.clearForm();
       }, error => {
         console.log('Hubo un error al comprobar el usuario!');
       }
     );
+  }
+
+  onCancel() {
+    this.clearForm();
+  }
+
+  clearForm() {
+    this.form.controls['username'].setValue('');
+    this.form.controls['username'].setErrors(null);
+    this.form.controls['password'].setValue('');
+    this.form.controls['password'].setErrors(null);
   }
 
 }
