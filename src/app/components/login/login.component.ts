@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
 declare var window: any;
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    private toastrService: ToastrService
   ) {
 
     this.form = this.formBuilder.group({
@@ -41,9 +43,10 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.form.value).subscribe(
       data => {
         this.formModal.hide();
+        this.toastrService.success(`Login de usuario ${data.username} exitoso!`);
         this.clearForm();
       }, error => {
-        console.log('Hubo un error al comprobar el usuario!');
+        this.toastrService.error('Hubo un error al comprobar el usuario!');
       }
     );
   }
