@@ -1,6 +1,6 @@
 <h2>{{experience.position}}</h2>
 <h3>{{experience.organization}}</h3>
-<h4>{{experience.periodFrom | date: 'MM/yyyy' : 'UTC +3'}} - {{experience.periodTo | date: 'MM/yyyy' : 'UTC +3'}}</h4>
+<h4>{{experience.periodFrom | date: 'MM/yyyy' : 'UTC +3'}} - {{(experience.periodTo != null && experience.periodTo != '') ? (experience.periodTo | date: 'MM/yyyy' : 'UTC +3') : 'al presente'}}</h4>
 <ul class="task">
   <li *ngFor="let task of experience.tasks">{{task.name}}</li>
 </ul>
