@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Experience } from 'src/app/models/experience';
 import { ExperienceService } from 'src/app/services/experience.service';
 
@@ -13,7 +14,8 @@ export class ExperienceComponent implements OnInit {
   experiences: Experience[] = [];
 
   constructor(
-    private experienceService: ExperienceService
+    private experienceService: ExperienceService,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -21,10 +23,13 @@ export class ExperienceComponent implements OnInit {
   }
 
   getExperiences() {
-    this.experienceService.getAll()
-      .subscribe(experiences => {
-        this.experiences = experiences;
+    try {
+      this.experienceService.getAll().subscribe({
+        next: (response) => this.experiences = response
       });
+    } catch (error) {
+      this.toastrService.error('Error!', (error as Error).message);
+    }
   }
 
 }

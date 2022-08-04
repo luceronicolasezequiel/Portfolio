@@ -30,25 +30,29 @@ export class LoginComponent implements OnInit {
 
   }
 
+  get username() { return this.form.get('username'); }
+  get password() { return this.form.get("password"); }
+  get formIsInValid() { return this.form.invalid; }
+
   ngOnInit(): void {
     this.formModal = new window.bootstrap.Modal(
       document.getElementById("modalLogin")
     );
   }
 
-  get username() { return this.form.get('username'); }
-  get password() { return this.form.get("password"); }
-
   onLogin() {
-    this.authService.login(this.form.value).subscribe(
-      data => {
-        this.formModal.hide();
-        this.toastrService.success(`Login de usuario ${data.username} exitoso!`);
-        this.clearForm();
-      }, error => {
-        this.toastrService.error('Hubo un error al comprobar el usuario!');
-      }
-    );
+    try {
+      this.authService.login(this.form.value).subscribe({
+        next: (response) => {
+          this.formModal.hide();
+          this.toastrService.success(`Login exitoso!`);
+          this.clearForm();
+        },
+        error: (err) => this.toastrService.error('Hubo un error al comprobar el usuario!')
+      });
+    } catch (error) {
+      this.toastrService.error('Error!', (error as Error).message);
+    }
   }
 
   onCancel() {

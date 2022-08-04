@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { PersonalInformation } from 'src/app/models/personal-information';
 import { PersonalInformationService } from 'src/app/services/personal-information.service';
 
@@ -12,7 +13,8 @@ export class PortfolioComponent implements OnInit {
   personalInformation: PersonalInformation = { fullName: '', title: '', summary: '' };
 
   constructor(
-    private personalInformationService: PersonalInformationService
+    private personalInformationService: PersonalInformationService,
+    private toastrService: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -20,10 +22,13 @@ export class PortfolioComponent implements OnInit {
   }
 
   getPersonalInformation() {
-    this.personalInformationService.getOne()
-      .subscribe(personalInformation => {
-        this.personalInformation = personalInformation;
+    try {
+      this.personalInformationService.getOne().subscribe({
+        next: (response) => this.personalInformation = response
       });
+    } catch (error) {
+      this.toastrService.error('Error!', (error as Error).message);
+    }
   }
 
 }
