@@ -1,25 +1,24 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Experience } from '../models/experience';
+import { Education } from '../models/education';
 import { GlobalService } from './global.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ExperienceService {
+export class EducationService {
 
-  private API_URL = '/experience';
+  private API_URL = '/education';
 
   constructor(
     private http: HttpClient,
     private globalService: GlobalService
   ) { }
 
-  getAll(): Observable<Experience[]> {
+  getAll(): Observable<Education[]> {
     let endpointUrl = this.globalService.getApiUrl() + this.API_URL + '/getAll';
 
-    return this.http.get<Experience[]>(endpointUrl, { headers: this.globalService.getHeadersWithOutToken() });
+    return this.http.get<Education[]>(endpointUrl, { headers: this.globalService.getHeadersWithOutToken() });
   }
-
 }

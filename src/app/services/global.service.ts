@@ -11,6 +11,27 @@ export class GlobalService {
 
   constructor() { }
 
+  getApiUrl(): string {
+    return 'http://localhost:9091/api';
+  }
+
+  getHeadersWithOutToken(): HttpHeaders {
+    return new HttpHeaders({
+      'Cache-Control': 'no-cache',
+      Pragma: 'no-cache',
+      Expires: '-1'
+    });
+  }
+
+  getHeadersWithToken(): HttpHeaders {
+    return new HttpHeaders({
+      'Cache-Control': 'no-cache',
+      Pragma: 'no-cache',
+      Expires: '-1',
+      Authorization: 'Bearer ' + this.getAccessToken()
+    });
+  }
+
   getUsername(): string | null {
     return window.localStorage.getItem(this.USER_NAME);
   }
@@ -33,23 +54,6 @@ export class GlobalService {
 
   removeAccessToken() {
     window.localStorage.removeItem(this.ACCESS_TOKEN);
-  }
-
-  getHeadersWithOutToken(): HttpHeaders {
-    return new HttpHeaders({
-      'Cache-Control': 'no-cache',
-      Pragma: 'no-cache',
-      Expires: '-1'
-    });
-  }
-
-  getHeadersWithToken(): HttpHeaders {
-    return new HttpHeaders({
-      'Cache-Control': 'no-cache',
-      Pragma: 'no-cache',
-      Expires: '-1',
-      Authorization: 'Bearer ' + this.getAccessToken()
-    });
   }
 
 }

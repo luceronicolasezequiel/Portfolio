@@ -9,7 +9,7 @@ import { GlobalService } from './global.service';
 })
 export class PersonalInformationService {
 
-  private API_URL = 'http://localhost:9091/api/personalInformation';
+  private API_URL = '/personalInformation';
 
   constructor(
     private http: HttpClient,
@@ -17,7 +17,7 @@ export class PersonalInformationService {
   ) { }
 
   getOne(): Observable<PersonalInformation> {
-    let endpointUrl = this.API_URL + '/getOne';
+    let endpointUrl = this.globalService.getApiUrl() + this.API_URL + '/getOne';
 
     return this.http.get<PersonalInformation>(endpointUrl, { headers: this.globalService.getHeadersWithOutToken() });
   }

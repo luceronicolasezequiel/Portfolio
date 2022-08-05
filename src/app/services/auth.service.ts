@@ -10,7 +10,7 @@ import { LoginResponse } from '../models/auth';
 })
 export class AuthService {
 
-  private API_URL = 'http://localhost:9091/api/auth';
+  private API_URL = '/auth';
 
   private loggedIn = new BehaviorSubject<boolean>(false);
   get isLoggedIn() { return this.loggedIn.asObservable(); }
@@ -21,7 +21,7 @@ export class AuthService {
   ) { }
 
   login(request: User): Observable<any> {
-    let endpointUrl = this.API_URL + '/login';
+    let endpointUrl = this.globalService.getApiUrl() + this.API_URL + '/login';
     
     return this.http.post<LoginResponse>(endpointUrl, request, { headers: this.globalService.getHeadersWithOutToken() })
       .pipe(map(data => {
