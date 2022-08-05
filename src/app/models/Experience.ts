@@ -8,5 +8,4 @@ export interface Experience {
   periodFrom: string;
   periodTo: string;
   tasks: Task[];
-  habilities: Hability[];
 }
