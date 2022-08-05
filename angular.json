@@ -108,5 +108,7 @@
       }
     }
   },
-  "defaultProject": "portafolioApp"
+  "cli": {
+    "analytics": false
+  }
 }
