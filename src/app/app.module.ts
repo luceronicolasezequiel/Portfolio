@@ -20,6 +20,7 @@ import { ExperienceItemComponent } from './components/portfolio/experience/exper
 import { EducationComponent } from './components/portfolio/education/education.component';
 import { EducationItemComponent } from './components/portfolio/education/education-item/education-item.component';
 import { HabilityComponent } from './components/portfolio/hability/hability.component';
+import { HabilityItemComponent } from './components/portfolio/hability/hability-item/hability-item.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { HabilityComponent } from './components/portfolio/hability/hability.comp
     ExperienceItemComponent,
     EducationComponent,
     EducationItemComponent,
-    HabilityComponent
+    HabilityComponent,
+    HabilityItemComponent
   ],
   imports: [
     BrowserModule,

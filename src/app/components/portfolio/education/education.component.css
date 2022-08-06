@@ -1,7 +1,6 @@
 .background {
-  background-color: #655C56;
+  background-color: #EBEDEF; /* #655C56; */
   padding-bottom: 1.5rem;
-  color: white;
 }
 
 .title {
@@ -20,7 +19,7 @@
   margin: 0.3rem;
   padding: 1.5rem;
   border-radius: 0.8rem;
-  background-color: #8a8480;;
+  background-color: #DBE8DB; /* #E5F2E5 #8a8480; */
 }
 
 @media (min-width: 280px) and (max-width: 767px) {
