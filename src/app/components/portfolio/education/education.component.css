@@ -1,12 +1,15 @@
 .background {
-  background-color: #EBEDEF; /* #655C56; */
+  background-color: #F2F0FB; /* #655C56; */
   padding-bottom: 1.5rem;
 }
 
 .title {
   text-align: center;
-  padding-top: 3rem;
+  padding-top: 4rem;
   padding-bottom: 1.8rem;
+  color: #148F77;
+  letter-spacing: 0.1rem;
+  font-size: 3.5rem;
 }
 
 .container-box {
@@ -19,7 +22,7 @@
   margin: 0.3rem;
   padding: 1.5rem;
   border-radius: 0.8rem;
-  background-color: #DBE8DB; /* #E5F2E5 #8a8480; */
+  background-color: #FFFFFF; /* #E5F2E5 #8a8480; */
 }
 
 @media (min-width: 280px) and (max-width: 767px) {

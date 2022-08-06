@@ -1,5 +1,5 @@
 .background {
-  background-color: #FFFFFF; /* #D1F2EB #D1F2EB #94D3AC; */
+  background-color: #808B96;
   padding-bottom: 1.5rem;
 }
 
@@ -11,7 +11,7 @@
 
 .container-box {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 0.2rem;
 }
 
@@ -19,11 +19,5 @@
   margin: 0.3rem;
   padding: 1.5rem;
   border-radius: 0.8rem;
-  background-color: #bcdac7;
-}
-
-@media (min-width: 280px) and (max-width: 767px) {
-  .container-box {
-    grid-template-columns: 1fr;
-  }
+  background-color: #ABB2B9;
 }

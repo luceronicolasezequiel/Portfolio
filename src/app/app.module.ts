@@ -21,6 +21,8 @@ import { EducationComponent } from './components/portfolio/education/education.c
 import { EducationItemComponent } from './components/portfolio/education/education-item/education-item.component';
 import { HabilityComponent } from './components/portfolio/hability/hability.component';
 import { HabilityItemComponent } from './components/portfolio/hability/hability-item/hability-item.component';
+import { ProyectComponent } from './components/portfolio/proyect/proyect.component';
+import { ProyectItemComponent } from './components/portfolio/proyect/proyect-item/proyect-item.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { HabilityItemComponent } from './components/portfolio/hability/hability-
     EducationComponent,
     EducationItemComponent,
     HabilityComponent,
-    HabilityItemComponent
+    HabilityItemComponent,
+    ProyectComponent,
+    ProyectItemComponent
   ],
   imports: [
     BrowserModule,
