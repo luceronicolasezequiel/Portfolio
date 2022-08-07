@@ -1,15 +1,14 @@
 .background {
-  background-color: #F2F0FB; /* #655C56; */
-  padding-bottom: 1.5rem;
+  background-color: #D8EACC;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 .title {
   text-align: center;
-  padding-top: 4rem;
-  padding-bottom: 1.8rem;
-  color: #148F77;
   letter-spacing: 0.1rem;
-  font-size: 3.5rem;
+  font-size: 3rem;
+  padding-bottom: 4rem;
 }
 
 .container-box {
@@ -22,7 +21,9 @@
   margin: 0.3rem;
   padding: 1.5rem;
   border-radius: 0.8rem;
-  background-color: #FFFFFF; /* #E5F2E5 #8a8480; */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
 }
 
 @media (min-width: 280px) and (max-width: 767px) {

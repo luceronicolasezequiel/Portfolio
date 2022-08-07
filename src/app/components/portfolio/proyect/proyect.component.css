@@ -1,12 +1,15 @@
 .background {
-  background-color: #808B96;
-  padding-bottom: 1.5rem;
+  background-color: #2A323D;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
 }
 
 .title {
   text-align: center;
-  padding-top: 3rem;
-  padding-bottom: 1.8rem;
+  letter-spacing: 0.1rem;
+  font-size: 3rem;
+  padding-bottom: 4rem;
+  color: white;
 }
 
 .container-box {
@@ -19,5 +22,8 @@
   margin: 0.3rem;
   padding: 1.5rem;
   border-radius: 0.8rem;
-  background-color: #ABB2B9;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: white;
 }

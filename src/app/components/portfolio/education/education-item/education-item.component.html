@@ -1,3 +1,2 @@
 <h2>{{education.title}}</h2>
-<h3>{{education.organization}}</h3>
-<h4>{{education.periodFrom | date: 'MM/yyyy' : 'UTC +3'}} - {{(education.periodTo != null && education.periodTo != '') ? (education.periodTo | date: 'MM/yyyy' : 'UTC +3') : 'al presente'}}</h4>
+<h3><strong>{{education.organization}}</strong> ({{education.periodFrom | date: 'MM/yyyy' : 'UTC +3'}} - {{(education.periodTo != null && education.periodTo != '') ? (education.periodTo | date: 'MM/yyyy' : 'UTC +3') : 'al presente'}})</h3>
