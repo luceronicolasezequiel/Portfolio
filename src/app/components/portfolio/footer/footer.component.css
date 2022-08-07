@@ -38,14 +38,13 @@ footer p {
 }
 
 .social {
-	list-style-type:none;
+	list-style-type: none;
 	padding: 0rem;
 	display: table;
 	margin-top: 2rem;
   margin-bottom: 0.62rem;
 	margin-right: auto;
 	margin-left: auto;
-  background-color: azure;
 }
 
 .social li {
@@ -57,9 +56,7 @@ footer p {
 
 .social li a {
   color: #CCC;
-  border: 0.06rem solid #CCC;
   padding: 0.5rem;
-  border-radius: 50%;
 }
 
 .social li i {
