@@ -23,6 +23,7 @@ import { HabilityComponent } from './components/portfolio/hability/hability.comp
 import { HabilityItemComponent } from './components/portfolio/hability/hability-item/hability-item.component';
 import { ProyectComponent } from './components/portfolio/proyect/proyect.component';
 import { ProyectItemComponent } from './components/portfolio/proyect/proyect-item/proyect-item.component';
+import { FooterComponent } from './components/portfolio/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { ProyectItemComponent } from './components/portfolio/proyect/proyect-ite
     HabilityComponent,
     HabilityItemComponent,
     ProyectComponent,
-    ProyectItemComponent
+    ProyectItemComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

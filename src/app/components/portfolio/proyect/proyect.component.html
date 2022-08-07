@@ -1,12 +1,14 @@
-<div class="background">
-  <div class="container">
-    <h1 class="title">{{title}}</h1>
-    <div class="container-box">
-      <app-proyect-item
-        class="box"
-        *ngFor="let proyect of proyects"
-        [proyect]="proyect"
-      ></app-proyect-item>
+<section id="proyect">
+  <div class="background">
+    <div class="container">
+      <h1 class="title">{{title}}</h1>
+      <div class="container-box">
+        <app-proyect-item
+          class="box"
+          *ngFor="let proyect of proyects"
+          [proyect]="proyect"
+        ></app-proyect-item>
+      </div>
     </div>
   </div>
-</div>
+</section>

@@ -1,12 +1,14 @@
-<div class="background">
-  <div class="container">
-    <h1 class="title">{{title}}</h1>
-    <div class="container-box">
-      <app-education-item
-        class="box"
-        *ngFor="let education of educations"
-        [education]="education"
-      ></app-education-item>
+<section id="education">
+  <div class="background">
+    <div class="container">
+      <h1 class="title">{{title}}</h1>
+      <div class="container-box">
+        <app-education-item
+          class="box"
+          *ngFor="let education of educations"
+          [education]="education"
+        ></app-education-item>
+      </div>
     </div>
   </div>
-</div>
+</section>
