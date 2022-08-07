@@ -7,8 +7,9 @@
 .title {
   text-align: center;
   letter-spacing: 0.1rem;
-  font-size: 3rem;
+  font-size: 4rem;
   padding-bottom: 4rem;
+  font-family: 'Bebas Neue', cursive;
 }
 
 .container-box {
