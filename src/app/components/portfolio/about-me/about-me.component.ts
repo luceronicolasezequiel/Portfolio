@@ -1,4 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { PersonalInformation } from 'src/app/models/personal-information';
+import { PersonalInformationService } from 'src/app/services/personal-information.service';
 
 @Component({
   selector: 'app-about-me',
@@ -7,12 +10,26 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class AboutMeComponent implements OnInit {
   @Input() title = '';
-  @Input() nameImage = '';
-  @Input() description = '';
 
-  constructor() { }
+  personalInformation: PersonalInformation = { name: '', surname: '', title: '', summary: '' };
+
+  constructor(
+    private personalInformationService: PersonalInformationService,
+    private toastrService: ToastrService
+  ) { }
 
   ngOnInit(): void {
+    this.getPersonalInformation();
+  }
+
+  getPersonalInformation() {
+    try {
+      this.personalInformationService.getOne().subscribe({
+        next: (response) => this.personalInformation = response
+      });
+    } catch (error) {
+      this.toastrService.error('Error!', (error as Error).message);
+    }
   }
 
 }

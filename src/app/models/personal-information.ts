@@ -1,6 +1,7 @@
 export interface PersonalInformation {
-    id?: number;
-    fullName: string;
-    title: string;
-    summary: string;
+  id?: number;
+  name: string;
+  surname: string;
+  title: string;
+  summary: string;
 }
