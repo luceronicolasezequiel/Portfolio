@@ -38,8 +38,8 @@
               typeButton="button"
               [isDisabled]="false"
               classButton="btn-custom"
-              dataBsToggle="modal"
-              dataBsTarget="#modalLogin">
+              data-bs-toggle="modal"
+              data-bs-target="#modalLogin">
             </app-button>
             <app-button
               *ngIf="isLoggedIn$ | async"
@@ -48,7 +48,7 @@
               typeButton="button"
               [isDisabled]="false"
               classButton="btn-custom"
-              (clickEvent)="onClickLogout()">
+              (clickEvent)="onLogout()">
             </app-button>
           </a>
         </li>

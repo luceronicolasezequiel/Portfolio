@@ -11,9 +11,6 @@ export class ButtonComponent implements OnInit {
   @Input() typeButton = 'button';
   @Input() isDisabled = false;
   @Input() classButton = 'btn btn-primary btn-lg';
-  @Input() dataBsToggle = '';
-  @Input() dataBsTarget = '';
-  @Input() dataBsDismiss = '';
   @Output() clickEvent = new EventEmitter();
 
   constructor() { }

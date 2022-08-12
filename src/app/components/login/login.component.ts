@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/services/auth.service';
 
@@ -14,7 +13,7 @@ declare var window: any;
 export class LoginComponent implements OnInit {
   @Input() title = 'Login';
 
-  formModal: any;
+  modal: any;
   form: UntypedFormGroup;
 
   constructor(
@@ -35,7 +34,7 @@ export class LoginComponent implements OnInit {
   get formIsInValid() { return this.form.invalid; }
 
   ngOnInit(): void {
-    this.formModal = new window.bootstrap.Modal(
+    this.modal = new window.bootstrap.Modal(
       document.getElementById("modalLogin")
     );
   }
@@ -44,9 +43,9 @@ export class LoginComponent implements OnInit {
     try {
       this.authService.login(this.form.value).subscribe({
         next: (response) => {
-          this.formModal.hide();
-          this.toastrService.success(`Login exitoso!`);
+          this.closeModal();
           this.clearForm();
+          this.toastrService.success(`Login exitoso!`);
         },
         error: (err) => this.toastrService.error('Hubo un error al comprobar el usuario!')
       });
@@ -60,10 +59,11 @@ export class LoginComponent implements OnInit {
   }
 
   clearForm() {
-    this.form.controls['username'].setValue('');
-    this.form.controls['username'].setErrors(null);
-    this.form.controls['password'].setValue('');
-    this.form.controls['password'].setErrors(null);
+    this.form.reset();
+  }
+
+  closeModal() {
+    this.modal.hide();
   }
 
 }
