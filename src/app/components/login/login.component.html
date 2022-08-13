@@ -9,7 +9,7 @@
         <form [formGroup]="form">
           <div class="mb-3">
             <label class="form-label" for="username">Usuario</label>
-            <input class="form-control" type="username" name="username" id="username"
+            <input class="form-control" type="text" name="username" id="username"
                    formControlName="username"
                    [ngClass]="{'is-invalid': this.username?.invalid && (this.username?.dirty || this.username?.touched),
                                'is-valid': !this.username?.invalid && (this.username?.dirty || this.username?.touched)}">

@@ -24,6 +24,7 @@ import { HabilityItemComponent } from './components/portfolio/hability/hability-
 import { ProyectComponent } from './components/portfolio/proyect/proyect.component';
 import { ProyectItemComponent } from './components/portfolio/proyect/proyect-item/proyect-item.component';
 import { FooterComponent } from './components/portfolio/footer/footer.component';
+import { PresentationEditComponent } from './components/portfolio/presentation/presentation-edit/presentation-edit.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { FooterComponent } from './components/portfolio/footer/footer.component'
     HabilityItemComponent,
     ProyectComponent,
     ProyectItemComponent,
-    FooterComponent
+    FooterComponent,
+    PresentationEditComponent
   ],
   imports: [
     BrowserModule,

@@ -4,10 +4,23 @@
       <div class="container-box">
         <div class="box">
           <img class="img-responsive img-size" src="../assets/img/developer.png">
-          <h1 class="title">{{personalInformation.surname}} {{personalInformation.name}}</h1>
+          <h1 class="title">
+            {{personalInformation.surname}} {{personalInformation.name}}&nbsp;
+            <a
+              *ngIf="(isLoggedIn$ | async)"
+              class="fa fa-pencil" title="Editar"
+              data-bs-toggle="modal"
+              data-bs-target="#modalPresentationEdit">
+            </a>
+          </h1>
           <h2 class="sub-title">{{personalInformation.title}}</h2>
         </div>
       </div>
     </div>
   </div>
 </section>
+
+<!-- Modal Edit -->
+<app-presentation-edit
+  [personalInformation]="personalInformation">
+</app-presentation-edit>
