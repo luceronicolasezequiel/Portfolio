@@ -5,3 +5,10 @@ export interface PersonalInformation {
   title: string;
   summary: string;
 }
+
+export class UpdateFullnameAndTitleRequest {
+  id: number = 0;
+  name: string = '';
+  surname: string = '';
+  title: string = '';
+}

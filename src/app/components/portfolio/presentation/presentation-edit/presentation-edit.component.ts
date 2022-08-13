@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { PersonalInformation } from 'src/app/models/personal-information';
-
-declare var window: any;
+import { PersonalInformation, UpdateFullnameAndTitleRequest } from 'src/app/models/personal-information';
+import { PersonalInformationService } from 'src/app/services/personal-information.service';
 
 @Component({
   selector: 'app-presentation-edit',
@@ -12,20 +12,22 @@ declare var window: any;
 })
 export class PresentationEditComponent implements OnInit {
 
-  @Input() personalInformation: PersonalInformation = { name: '', surname: '', title: '', summary: '' };
+  @Input() personalInformation!: PersonalInformation;
 
-  modal: any;
-  form: UntypedFormGroup;
+  form: FormGroup;
 
   constructor(
-    private formBuilder: UntypedFormBuilder,
+    private activeModal: NgbActiveModal,
+    private formBuilder: FormBuilder,
+    private personalInformationService: PersonalInformationService,
     private toastrService: ToastrService
   ) {
 
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
       name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      surname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]]
+      surname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      title: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]]
     });
 
   }
@@ -33,21 +35,39 @@ export class PresentationEditComponent implements OnInit {
   get id() { return this.form.get('id'); }
   get name() { return this.form.get('name'); }
   get surname() { return this.form.get('surname'); }
+  get title() { return this.form.get('title'); }
   get formIsInValid() { return this.form.invalid; }
 
   ngOnInit(): void {
-    this.modal = new window.bootstrap.Modal(
-      document.getElementById("modalPresentationEdit")
-    );
-
-    this.form.controls['name'].setValue(this.personalInformation.name);
+    this.form.get('id')?.setValue(this.personalInformation.id);
+    this.form.get('name')?.setValue(this.personalInformation.name);
+    this.form.get('surname')?.setValue(this.personalInformation.surname);
+    this.form.get('title')?.setValue(this.personalInformation.title);
   }
 
   onSave() {
+    try {
+      const request = new UpdateFullnameAndTitleRequest();
+      request.id = this.id?.value;
+      request.name = this.name?.value;
+      request.surname = this.surname?.value;
+      request.title = this.title?.value;
 
+      this.personalInformationService.updateFullnameAndTitle(request).subscribe({
+        next: (response) => {
+          this.closeModalWithData(response);
+          this.clearForm();
+          this.toastrService.success(`Actualización de datos exitoso!`);
+        },
+        error: (err) => this.toastrService.error('Hubo un error al comprobar el usuario!')
+      });
+    } catch (error) {
+      this.toastrService.error('Error!', (error as Error).message);
+    }
   }
 
   onCancel() {
+    this.closeModal();
     this.clearForm();
   }
 
@@ -56,7 +76,11 @@ export class PresentationEditComponent implements OnInit {
   }
 
   closeModal() {
-    this.modal.hide();
+    this.activeModal.close();
+  }
+
+  closeModalWithData(personalInformation: PersonalInformation) {
+    this.activeModal.close(personalInformation);
   }
 
 }

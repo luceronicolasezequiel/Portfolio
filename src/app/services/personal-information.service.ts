@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PersonalInformation } from '../models/personal-information';
+import { PersonalInformation, UpdateFullnameAndTitleRequest } from '../models/personal-information';
 import { GlobalService } from './global.service';
 
 @Injectable({
@@ -20,5 +20,22 @@ export class PersonalInformationService {
     let endpointUrl = this.globalService.getApiUrl() + this.API_URL + '/getOne';
 
     return this.http.get<PersonalInformation>(endpointUrl, { headers: this.globalService.getHeadersWithOutToken() });
+  }
+
+  updateFullnameAndTitle(request: UpdateFullnameAndTitleRequest): Observable<any> {
+    let endpointUrl = this.globalService.getApiUrl() + this.API_URL + '/updateFullnameAndTitle';
+    
+    const observable = new Observable(observer => {
+      this.http.put<PersonalInformation>(endpointUrl, request, { headers: this.globalService.getHeadersWithToken() }).subscribe(
+        response => {
+          observer.next(response);
+          observer.complete();
+        }
+      );
+    });
+    
+    return observable;
+
+    // this.http.put<PersonalInformation>(endpointUrl, request, { headers: this.globalService.getHeadersWithToken() });
   }
 }

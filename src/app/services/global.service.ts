@@ -18,17 +18,17 @@ export class GlobalService {
   getHeadersWithOutToken(): HttpHeaders {
     return new HttpHeaders({
       'Cache-Control': 'no-cache',
-      Pragma: 'no-cache',
-      Expires: '-1'
+      'Pragma': 'no-cache',
+      'Expires': '-1'
     });
   }
 
   getHeadersWithToken(): HttpHeaders {
     return new HttpHeaders({
       'Cache-Control': 'no-cache',
-      Pragma: 'no-cache',
-      Expires: '-1',
-      Authorization: 'Bearer ' + this.getAccessToken()
+      'Pragma': 'no-cache',
+      'Expires': '-1',
+      'Authorization': 'Bearer ' + this.getAccessToken()
     });
   }
 

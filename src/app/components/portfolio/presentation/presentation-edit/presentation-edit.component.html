@@ -1,64 +1,70 @@
-<div class="modal fade" id="modalPresentationEdit" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="modalPresentationEditLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="titleModalLabel">Editar</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="onCancel()"></button>
-      </div>
-      <div class="modal-body">
-        <form [formGroup]="form">
-          <input class="form-control" type="hidden" name="id" id="id">
-          <div class="mb-3">
-            <label class="form-label" for="name">Nombre</label>
-            <input class="form-control" type="text" name="name" id="name"
-                    formControlName="name"
-                    [ngClass]="{'is-invalid': this.name?.invalid && (this.name?.dirty || this.name?.touched),
-                                'is-valid': !this.name?.invalid && (this.name?.dirty || this.name?.touched)}">
-            <div *ngIf="this.name?.invalid && (this.name?.dirty || this.name?.touched)">
-              <p *ngIf="name?.errors?.['required']" class="validation text-danger">
-                El Nombre es requerido.
-              </p>
-              <p *ngIf="name?.errors?.['minlength'] || name?.errors?.['maxLength']" class="validation text-danger">
-                El Nombre debe tener entre 3 y 50 caracteres.
-              </p>
-            </div>
-          </div>
-          <div class="mb-3">
-            <label class="form-label" for="surname">Apellido</label>
-            <input class="form-control" type="text" name="surname" id="surname"
-                    formControlName="surname"
-                    [ngClass]="{'is-invalid': this.surname?.invalid && (this.surname?.dirty || this.surname?.touched),
-                                'is-valid': !this.surname?.invalid && (this.surname?.dirty || this.surname?.touched)}">
-            <div *ngIf="this.surname?.invalid && (this.surname?.dirty || this.surname?.touched)">
-              <p *ngIf="surname?.errors?.['required']" class="validation text-danger">
-                El Apellido es requerido.
-              </p>
-              <p *ngIf="surname?.errors?.['minlength'] || surname?.errors?.['maxLength']" class="validation text-danger">
-                El Apellido debe tener entre 3 y 50 caracteres.
-              </p>
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <app-button
-          textButton="Guardar"
-          nameButton="save"
-          typeButton="button"
-          [isDisabled]="formIsInValid"
-          classButton="btn btn-dark"
-          (clickEvent)="onSave()">
-        </app-button>
-        <app-button
-          textButton="Cancelar"
-          nameButton="cancel"
-          typeButton="button"
-          [isDisabled]="false"
-          classButton="btn btn-secondary"
-          (clickEvent)="onCancel()"
-          data-bs-dismiss="modal">
-        </app-button>
+<div class="modal-header">
+  <h5 class="modal-title" id="titleModalLabel">Presentación | Editar</h5>
+  <button type="button" class="btn-close" data-dismiss="modal" (click)="onCancel()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form">
+    <input class="form-control" type="hidden" name="id" id="id" formControlName="id">
+    <div class="mb-3">
+      <label class="form-label" for="name">Nombre</label>
+      <input class="form-control" type="text" name="name" id="name" formControlName="name"
+              [ngClass]="{'is-invalid': this.name?.invalid && (this.name?.dirty || this.name?.touched),
+                          'is-valid': !this.name?.invalid && (this.name?.dirty || this.name?.touched)}">
+      <div *ngIf="this.name?.invalid && (this.name?.dirty || this.name?.touched)">
+        <p *ngIf="name?.errors?.['required']" class="validation text-danger">
+          El Nombre es requerido.
+        </p>
+        <p *ngIf="name?.errors?.['minLength'] || name?.errors?.['maxLength']" class="validation text-danger">
+          El Nombre debe tener entre 3 y 50 caracteres.
+        </p>
       </div>
     </div>
-  </div>
+    <div class="mb-3">
+      <label class="form-label" for="surname">Apellido</label>
+      <input class="form-control" type="text" name="surname" id="surname" formControlName="surname"
+              [ngClass]="{'is-invalid': this.surname?.invalid && (this.surname?.dirty || this.surname?.touched),
+                          'is-valid': !this.surname?.invalid && (this.surname?.dirty || this.surname?.touched)}">
+      <div *ngIf="this.surname?.invalid && (this.surname?.dirty || this.surname?.touched)">
+        <p *ngIf="surname?.errors?.['required']" class="validation text-danger">
+          El Apellido es requerido.
+        </p>
+        <p *ngIf="surname?.errors?.['minLength'] || surname?.errors?.['maxLength']" class="validation text-danger">
+          El Apellido debe tener entre 3 y 50 caracteres.
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="title">Título</label>
+      <input class="form-control" type="text" name="title" id="title" formControlName="title"
+              [ngClass]="{'is-invalid': this.title?.invalid && (this.title?.dirty || this.title?.touched),
+                          'is-valid': !this.title?.invalid && (this.title?.dirty || this.title?.touched)}">
+      <div *ngIf="this.title?.invalid && (this.title?.dirty || this.title?.touched)">
+        <p *ngIf="title?.errors?.['required']" class="validation text-danger">
+          El Título es requerido.
+        </p>
+        <p *ngIf="title?.errors?.['minLength'] || title?.errors?.['maxLength']" class="validation text-danger">
+          El Título debe tener entre 3 y 80 caracteres.
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <app-button
+    textButton="Guardar"
+    nameButton="save"
+    typeButton="button"
+    [isDisabled]="formIsInValid"
+    classButton="btn btn-dark"
+    (clickEvent)="onSave()">
+  </app-button>
+  <app-button
+    textButton="Cancelar"
+    nameButton="cancel"
+    typeButton="button"
+    [isDisabled]="false"
+    classButton="btn btn-secondary"
+    (clickEvent)="onCancel()"
+    data-dismiss="modal">
+  </app-button>
 </div>

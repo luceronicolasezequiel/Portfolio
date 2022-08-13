@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './components/shared/shared.module';
@@ -14,6 +15,7 @@ import { LoginComponent } from './components/login/login.component';
 
 import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { PresentationComponent } from './components/portfolio/presentation/presentation.component';
+import { PresentationEditComponent } from './components/portfolio/presentation/presentation-edit/presentation-edit.component';
 import { AboutMeComponent } from './components/portfolio/about-me/about-me.component';
 import { ExperienceComponent } from './components/portfolio/experience/experience.component';
 import { ExperienceItemComponent } from './components/portfolio/experience/experience-item/experience-item.component';
@@ -24,7 +26,7 @@ import { HabilityItemComponent } from './components/portfolio/hability/hability-
 import { ProyectComponent } from './components/portfolio/proyect/proyect.component';
 import { ProyectItemComponent } from './components/portfolio/proyect/proyect-item/proyect-item.component';
 import { FooterComponent } from './components/portfolio/footer/footer.component';
-import { PresentationEditComponent } from './components/portfolio/presentation/presentation-edit/presentation-edit.component';
+import { ButtonComponent } from './components/shared/button/button.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { PresentationEditComponent } from './components/portfolio/presentation/p
     LoginComponent,
     PortfolioComponent,
     PresentationComponent,
+    PresentationEditComponent,
     AboutMeComponent,
     ExperienceComponent,
     ExperienceItemComponent,
@@ -42,8 +45,7 @@ import { PresentationEditComponent } from './components/portfolio/presentation/p
     HabilityItemComponent,
     ProyectComponent,
     ProyectItemComponent,
-    FooterComponent,
-    PresentationEditComponent
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,11 @@ import { PresentationEditComponent } from './components/portfolio/presentation/p
     ReactiveFormsModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
+    NgbModule,
     SharedModule
+  ],
+  entryComponents: [
+    PresentationEditComponent
   ],
   providers: [],
   bootstrap: [AppComponent]
