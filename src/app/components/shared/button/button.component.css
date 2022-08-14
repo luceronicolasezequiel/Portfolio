@@ -1,0 +1,9 @@
+.btn-custom {
+  height: 48px;
+  border-radius: 8px;
+  background-color: #CCEDD2;
+  font-family: Source Sans Pro,sans-serif;
+  font-size: 18px;
+  font-stretch: normal;
+  font-style: normal;
+}

@@ -1,0 +1,56 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="titleModalLabel">Login</h5>
+  <button type="button" class="btn-close" data-dismiss="modal" (click)="onCancel()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form">
+    <div class="mb-3">
+      <label class="form-label" for="username">Usuario</label>
+      <input class="form-control" type="text" name="username" id="username" formControlName="username"
+             [ngClass]="{'is-invalid': this.username?.invalid && (this.username?.dirty || this.username?.touched),
+                         'is-valid': !this.username?.invalid && (this.username?.dirty || this.username?.touched)}">
+      <div *ngIf="this.username?.invalid && (this.username?.dirty || this.username?.touched)">
+        <p *ngIf="username?.errors?.['required']" class="validation text-danger">
+          El Usuario es requerido.
+        </p>
+        <p *ngIf="username?.errors?.['minlength']" class="validation text-danger">
+          El Usuario debe ser de 5 ó más caracteres.
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="password">Contraseña</label>
+      <input class="form-control" type="password" name="password" id="password"
+             formControlName="password"
+             [ngClass]="{'is-invalid': password?.invalid && (password?.dirty || password?.touched),
+                         'is-valid': !password?.invalid && (password?.dirty || password?.touched)}">
+      <div *ngIf="password?.invalid && (password?.dirty || password?.touched)">
+        <p *ngIf="password?.errors?.['required']" class="validation text-danger">
+          La Contraseña es requerida.
+        </p>
+        <p *ngIf="password?.errors?.['minlength']" class="validation text-danger">
+          La Contraseña debe ser de 5 ó más caracteres.
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <app-button
+    textButton="Ingresar"
+    nameButton="login"
+    typeButton="button"
+    [isDisabled]="formIsInValid"
+    classButton="btn btn-dark"
+    (clickEvent)="onLogin()">
+  </app-button>
+  <app-button
+    textButton="Cancelar"
+    nameButton="cancel"
+    typeButton="button"
+    [isDisabled]="false"
+    classButton="btn btn-secondary"
+    (clickEvent)="onCancel()"
+    data-dismiss="modal">
+  </app-button>
+</div>

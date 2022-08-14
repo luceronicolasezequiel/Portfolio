@@ -1,0 +1,69 @@
+.background {
+  background-color: #F8F9F9;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.title {
+  text-align: center;
+  letter-spacing: 0.1rem;
+  font-size: 4rem;
+  padding-bottom: 4rem;
+  font-family: 'Bebas Neue', cursive;
+}
+
+.container-box {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 0.2rem;
+  align-items: center;
+}
+
+.img-profile {
+  text-align: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+  height: 25%;
+  width: 25%;
+  min-height: 15rem;
+  min-width: 15rem;
+}
+
+p {
+  text-align: left;
+  font-family: 'Encode Sans', sans-serif;
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding-left: 1rem;
+} 
+
+@media (min-width: 280px) and (max-width: 767px) {
+  .container-box {
+    display:contents;
+  }
+
+  .img-profile {
+    display: block;
+    margin-top: 0rem;
+    margin-bottom: 0rem;
+  }
+
+  p {
+    text-align: center;
+    padding-top: 2rem;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #2A323D;
+  font-size: 1.5rem;
+}

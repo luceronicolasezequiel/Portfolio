@@ -1,0 +1,66 @@
+footer {
+  font-family: 'Cabin', sans-serif;
+  width:100%;
+  background-color:#1f252d;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+footer p {
+  font-size: 0.8rem;
+  color:#CCC;
+  padding-bottom: 0rem;
+  margin-bottom: 0.5rem;
+}
+
+.sections {
+	list-style-type: none;
+	padding: 0rem;
+	display: table;
+	margin-top: 0.6rem;
+  margin-bottom: 2rem;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.sections li {
+  display: inline;
+}
+
+.sections li a {
+  color: #999;
+  margin: 0rem 0.75rem;
+  text-decoration: none;
+}
+
+.sections li a:hover {
+  color:#fff;
+}
+
+.social {
+	list-style-type: none;
+	padding: 0rem;
+	display: table;
+	margin-top: 2rem;
+  margin-bottom: 0.62rem;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.social li {
+  display: inline;
+  padding-left: 0.62rem;
+  padding-right: 0.62rem;
+  padding-top: 0.62rem;
+}
+
+.social li a {
+  color: #CCC;
+  padding: 0.5rem;
+}
+
+.social li i {
+  width: 1.25rem;
+  height: 1.25rem;
+  text-align: center;
+}

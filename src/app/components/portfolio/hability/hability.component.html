@@ -1,0 +1,14 @@
+<section id="hability">
+  <div class="background">
+    <div class="container">
+      <h1 class="title">{{title}}</h1>
+      <div class="container-box">
+        <app-hability-item
+          class="box"
+          *ngFor="let hability of habilities"
+          [hability]="hability"
+        ></app-hability-item>
+      </div>
+    </div>
+  </div>
+</section>

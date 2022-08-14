@@ -1,0 +1,23 @@
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+ul.task li {
+  margin-top: 1rem;
+}
+
+h2 {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  font-family: 'Secular One', sans-serif;
+}
+
+h3 {
+  font-family: 'Encode Sans', sans-serif;
+}
+
+ul {
+  font-family: 'Encode Sans', sans-serif;
+  font-size: 1.2rem;
+}

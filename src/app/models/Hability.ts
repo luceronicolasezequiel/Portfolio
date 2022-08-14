@@ -1,5 +1,5 @@
 export interface Hability {
-  habilityId?: number;
+  id?: number;
   name: string;
-  icon?: string;
+  percentage: number;
 }

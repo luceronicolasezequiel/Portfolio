@@ -1,0 +1,30 @@
+.background {
+  background-color: #2A323D;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.title {
+  text-align: center;
+  letter-spacing: 0.1rem;
+  font-size: 4rem;
+  padding-bottom: 4rem;
+  font-family: 'Bebas Neue', cursive;
+  color: white;
+}
+
+.container-box {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.2rem;
+}
+
+.box {
+  margin: 0.3rem;
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  color: white;
+}

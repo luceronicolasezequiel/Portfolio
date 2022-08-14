@@ -1,0 +1,43 @@
+.background {
+  background-color: #CCEDD2;
+}
+
+.container-box { 
+  height: 100vh;
+  min-height: 17rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.box {
+  height: 17rem;
+  width: 25rem;
+  text-align: center;
+}
+
+.img-size {
+  height: 10rem;
+  width: 10rem;
+}
+
+.title {
+  font-family: 'Asap Condensed', sans-serif;
+}
+
+.sub-title {
+  font-family: 'Chivo', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #2A323D;
+  font-size: 1.5rem;
+}

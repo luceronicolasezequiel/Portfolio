@@ -1,0 +1,50 @@
+.background {
+  background-color: #FFFFFF;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+.title {
+  text-align: center;
+  letter-spacing: 0.1rem;
+  font-size: 4rem;
+  padding-bottom: 4rem;
+  font-family: 'Bebas Neue', cursive;
+}
+
+.add {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 1.2rem 1.2rem;
+  margin-left: 0.3rem;
+  font-family: 'Cabin', sans-serif;
+  background-color: #04B45F;
+  border-radius: 0.8rem;
+}
+
+.add:hover {
+  background-color: #04c86b;
+}
+
+.container-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.2rem;
+  margin-top: 2rem;
+}
+
+.box {
+  margin: 0.3rem;
+  padding: 1.5rem;
+  border-radius: 0.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+@media (min-width: 280px) and (max-width: 767px) {
+  .container-box {
+    grid-template-columns: 1fr;
+  }
+}

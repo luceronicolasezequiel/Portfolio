@@ -1,11 +1,18 @@
-import { Hability } from "./Hability";
-import { Task } from "./Task";
+import { Hability } from "./hability";
+import { Task } from "./task";
 
 export interface Experience {
-  experienceId?: number;
+  id?: number;
   position: string;
   organization: string;
-  period: string;
+  periodFrom: string;
+  periodTo: string;
   tasks: Task[];
-  habilitys: Hability[];
+}
+
+export class CreateExperienceRequest {
+  position: string = '';
+  organization: string = '';
+  periodFrom: string = '';
+  periodTo: string = '';
 }
