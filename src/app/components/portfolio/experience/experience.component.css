@@ -12,10 +12,26 @@
   font-family: 'Bebas Neue', cursive;
 }
 
+.add {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 1.2rem 1.2rem;
+  margin-left: 0.3rem;
+  font-family: 'Cabin', sans-serif;
+  background-color: #04B45F;
+  border-radius: 0.8rem;
+}
+
+.add:hover {
+  background-color: #04c86b;
+}
+
 .container-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 0.2rem;
+  margin-top: 2rem;
 }
 
 .box {

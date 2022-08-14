@@ -9,3 +9,10 @@ export interface Experience {
   periodTo: string;
   tasks: Task[];
 }
+
+export class CreateExperienceRequest {
+  position: string = '';
+  organization: string = '';
+  periodFrom: string = '';
+  periodTo: string = '';
+}

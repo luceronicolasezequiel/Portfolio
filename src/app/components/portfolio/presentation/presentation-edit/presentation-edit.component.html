@@ -14,7 +14,7 @@
         <p *ngIf="name?.errors?.['required']" class="validation text-danger">
           El Nombre es requerido.
         </p>
-        <p *ngIf="name?.errors?.['minLength'] || name?.errors?.['maxLength']" class="validation text-danger">
+        <p *ngIf="name?.errors?.['minlength'] || name?.errors?.['maxLength']" class="validation text-danger">
           El Nombre debe tener entre 3 y 50 caracteres.
         </p>
       </div>
@@ -28,7 +28,7 @@
         <p *ngIf="surname?.errors?.['required']" class="validation text-danger">
           El Apellido es requerido.
         </p>
-        <p *ngIf="surname?.errors?.['minLength'] || surname?.errors?.['maxLength']" class="validation text-danger">
+        <p *ngIf="surname?.errors?.['minlength'] || surname?.errors?.['maxLength']" class="validation text-danger">
           El Apellido debe tener entre 3 y 50 caracteres.
         </p>
       </div>
@@ -42,7 +42,7 @@
         <p *ngIf="title?.errors?.['required']" class="validation text-danger">
           El Título es requerido.
         </p>
-        <p *ngIf="title?.errors?.['minLength'] || title?.errors?.['maxLength']" class="validation text-danger">
+        <p *ngIf="title?.errors?.['minlength'] || title?.errors?.['maxLength']" class="validation text-danger">
           El Título debe tener entre 3 y 80 caracteres.
         </p>
       </div>

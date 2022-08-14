@@ -19,6 +19,7 @@ import { PresentationEditComponent } from './components/portfolio/presentation/p
 import { AboutMeComponent } from './components/portfolio/about-me/about-me.component';
 import { AboutMeEditComponent } from './components/portfolio/about-me/about-me-edit/about-me-edit.component';
 import { ExperienceComponent } from './components/portfolio/experience/experience.component';
+import { ExperienceAddComponent } from './components/portfolio/experience/experience-add/experience-add.component';
 import { ExperienceItemComponent } from './components/portfolio/experience/experience-item/experience-item.component';
 import { EducationComponent } from './components/portfolio/education/education.component';
 import { EducationItemComponent } from './components/portfolio/education/education-item/education-item.component';
@@ -39,6 +40,7 @@ import { FooterComponent } from './components/portfolio/footer/footer.component'
     AboutMeComponent,
     AboutMeEditComponent,
     ExperienceComponent,
+    ExperienceAddComponent,
     ExperienceItemComponent,
     EducationComponent,
     EducationItemComponent,
@@ -61,7 +63,8 @@ import { FooterComponent } from './components/portfolio/footer/footer.component'
   entryComponents: [
     LoginComponent,
     PresentationEditComponent,
-    AboutMeEditComponent
+    AboutMeEditComponent,
+    ExperienceAddComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

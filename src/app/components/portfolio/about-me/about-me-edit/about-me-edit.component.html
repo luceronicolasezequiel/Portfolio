@@ -15,7 +15,7 @@
         <p *ngIf="summary?.errors?.['required']" class="validation text-danger">
           El Nombre es requerido.
         </p>
-        <p *ngIf="summary?.errors?.['minLength'] || summary?.errors?.['maxLength']" class="validation text-danger">
+        <p *ngIf="summary?.errors?.['minlength'] || summary?.errors?.['maxLength']" class="validation text-danger">
           El Resumen debe tener entre 3 y 1000 caracteres.
         </p>
       </div>

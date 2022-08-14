@@ -2,6 +2,9 @@
   <div class="background">
     <div class="container">
       <h1 class="title">{{title}}</h1>
+      <a *ngIf="(isLoggedIn$ | async)" class="add" title="Agregar Experiencia" (click)="onOpenModal()">
+        <i class="fa fa-plus"></i> Agregar Experiencia
+      </a>
       <div class="container-box">
         <app-experience-item
           class="box"
