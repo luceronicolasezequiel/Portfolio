@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="titleModalLabel">Sobre Mi | Editar</h5>
+  <button type="button" class="btn-close" data-dismiss="modal" (click)="onCancel()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form">
+    <input class="form-control" type="hidden" name="id" id="id" formControlName="id">
+    <div class="mb-3">
+      <label class="form-label" for="summary">Resumen</label>
+      <textarea class="form-control" type="text" name="summary" id="summary" formControlName="summary" rows="8"
+              [ngClass]="{'is-invalid': this.summary?.invalid && (this.summary?.dirty || this.summary?.touched),
+                          'is-valid': !this.summary?.invalid && (this.summary?.dirty || this.summary?.touched)}">
+      </textarea>
+      <div *ngIf="this.summary?.invalid && (this.summary?.dirty || this.summary?.touched)">
+        <p *ngIf="summary?.errors?.['required']" class="validation text-danger">
+          El Nombre es requerido.
+        </p>
+        <p *ngIf="summary?.errors?.['minLength'] || summary?.errors?.['maxLength']" class="validation text-danger">
+          El Resumen debe tener entre 3 y 1000 caracteres.
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <app-button
+    textButton="Guardar"
+    nameButton="save"
+    typeButton="button"
+    [isDisabled]="formIsInValid"
+    classButton="btn btn-dark"
+    (clickEvent)="onSave()">
+  </app-button>
+  <app-button
+    textButton="Cancelar"
+    nameButton="cancel"
+    typeButton="button"
+    [isDisabled]="false"
+    classButton="btn btn-secondary"
+    (clickEvent)="onCancel()"
+    data-dismiss="modal">
+  </app-button>
+</div>

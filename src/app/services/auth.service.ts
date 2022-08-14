@@ -2,8 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { GlobalService } from './global.service';
 import { BehaviorSubject, map, Observable } from 'rxjs';
-import { User } from '../models/user';
-import { LoginResponse } from '../models/auth';
+import { LoginRequest, LoginResponse } from '../models/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -20,7 +19,7 @@ export class AuthService {
     private globalService: GlobalService
   ) { }
 
-  login(request: User): Observable<any> {
+  login(request: LoginRequest): Observable<any> {
     let endpointUrl = this.globalService.getApiUrl() + this.API_URL + '/login';
     
     return this.http.post<LoginResponse>(endpointUrl, request, { headers: this.globalService.getHeadersWithOutToken() })

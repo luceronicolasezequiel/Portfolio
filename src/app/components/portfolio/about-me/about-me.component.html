@@ -7,7 +7,14 @@
           <img class="rounded-circle img-responsive img-profile" src="../assets/img/profile.jpeg">
         </div>
         <div>
-          <p>{{personalInformation.summary}}</p>
+          <p>
+            {{personalInformation.summary}}&nbsp;
+            <a
+              *ngIf="(isLoggedIn$ | async)"
+              class="fa fa-pencil" title="Editar"
+              (click)="onOpenModal()">
+            </a>
+          </p>
         </div>
       </div>
     </div>

@@ -1,21 +1,21 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
-import { PersonalInformation, UpdateFullnameAndTitleRequest } from 'src/app/models/personal-information';
+import { PersonalInformation, UpdateSummaryRequest } from 'src/app/models/personal-information';
 import { PersonalInformationService } from 'src/app/services/personal-information.service';
 
 @Component({
-  selector: 'app-presentation-edit',
-  templateUrl: './presentation-edit.component.html',
-  styleUrls: ['./presentation-edit.component.css']
+  selector: 'app-about-me-edit',
+  templateUrl: './about-me-edit.component.html',
+  styleUrls: ['./about-me-edit.component.css']
 })
-export class PresentationEditComponent implements OnInit {
+export class AboutMeEditComponent implements OnInit {
 
   @Input() personalInformation!: PersonalInformation;
 
   form: FormGroup;
-
+  
   constructor(
     private activeModal: NgbActiveModal,
     private formBuilder: FormBuilder,
@@ -25,35 +25,27 @@ export class PresentationEditComponent implements OnInit {
 
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
-      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      surname: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      title: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(80)]]
+      summary: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(1000)]]
     });
 
   }
 
   get id() { return this.form.get('id'); }
-  get name() { return this.form.get('name'); }
-  get surname() { return this.form.get('surname'); }
-  get title() { return this.form.get('title'); }
+  get summary() { return this.form.get('summary'); }
   get formIsInValid() { return this.form.invalid; }
 
   ngOnInit(): void {
     this.form.get('id')?.setValue(this.personalInformation.id);
-    this.form.get('name')?.setValue(this.personalInformation.name);
-    this.form.get('surname')?.setValue(this.personalInformation.surname);
-    this.form.get('title')?.setValue(this.personalInformation.title);
+    this.form.get('summary')?.setValue(this.personalInformation.summary);
   }
 
   onSave() {
     try {
-      const request = new UpdateFullnameAndTitleRequest();
+      const request = new UpdateSummaryRequest();
       request.id = this.id?.value;
-      request.name = this.name?.value;
-      request.surname = this.surname?.value;
-      request.title = this.title?.value;
+      request.summary = this.summary?.value;
 
-      this.personalInformationService.updateFullnameAndTitle(request).subscribe({
+      this.personalInformationService.updateSummary(request).subscribe({
         next: (response) => {
           this.closeModalWithData(response);
           this.clearForm();

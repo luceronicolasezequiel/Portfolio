@@ -17,6 +17,7 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { PresentationComponent } from './components/portfolio/presentation/presentation.component';
 import { PresentationEditComponent } from './components/portfolio/presentation/presentation-edit/presentation-edit.component';
 import { AboutMeComponent } from './components/portfolio/about-me/about-me.component';
+import { AboutMeEditComponent } from './components/portfolio/about-me/about-me-edit/about-me-edit.component';
 import { ExperienceComponent } from './components/portfolio/experience/experience.component';
 import { ExperienceItemComponent } from './components/portfolio/experience/experience-item/experience-item.component';
 import { EducationComponent } from './components/portfolio/education/education.component';
@@ -26,7 +27,6 @@ import { HabilityItemComponent } from './components/portfolio/hability/hability-
 import { ProyectComponent } from './components/portfolio/proyect/proyect.component';
 import { ProyectItemComponent } from './components/portfolio/proyect/proyect-item/proyect-item.component';
 import { FooterComponent } from './components/portfolio/footer/footer.component';
-import { ButtonComponent } from './components/shared/button/button.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +37,7 @@ import { ButtonComponent } from './components/shared/button/button.component';
     PresentationComponent,
     PresentationEditComponent,
     AboutMeComponent,
+    AboutMeEditComponent,
     ExperienceComponent,
     ExperienceItemComponent,
     EducationComponent,
@@ -58,7 +59,9 @@ import { ButtonComponent } from './components/shared/button/button.component';
     SharedModule
   ],
   entryComponents: [
-    PresentationEditComponent
+    LoginComponent,
+    PresentationEditComponent,
+    AboutMeEditComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
+import { LoginRequest } from 'src/app/models/auth';
 import { AuthService } from 'src/app/services/auth.service';
-
-declare var window: any;
 
 @Component({
   selector: 'app-login',
@@ -11,13 +11,12 @@ declare var window: any;
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  @Input() title = 'Login';
-
-  modal: any;
-  form: UntypedFormGroup;
+  
+  form: FormGroup;
 
   constructor(
-    private formBuilder: UntypedFormBuilder,
+    private activeModal: NgbActiveModal,
+    private formBuilder: FormBuilder,
     private authService: AuthService,
     private toastrService: ToastrService
   ) {
@@ -33,21 +32,21 @@ export class LoginComponent implements OnInit {
   get password() { return this.form.get("password"); }
   get formIsInValid() { return this.form.invalid; }
 
-  ngOnInit(): void {
-    this.modal = new window.bootstrap.Modal(
-      document.getElementById("modalLogin")
-    );
-  }
+  ngOnInit(): void { }
 
   onLogin() {
     try {
-      this.authService.login(this.form.value).subscribe({
-        next: (response) => {
+      const request = new LoginRequest();
+      request.username = this.username?.value;
+      request.password = this.password?.value;
+
+      this.authService.login(request).subscribe({
+        next: () => {
           this.closeModal();
           this.clearForm();
           this.toastrService.success(`Login exitoso!`);
         },
-        error: (err) => this.toastrService.error('Hubo un error al comprobar el usuario!')
+        error: () => this.toastrService.error('Hubo un error al comprobar el usuario!')
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);
@@ -55,6 +54,7 @@ export class LoginComponent implements OnInit {
   }
 
   onCancel() {
+    this.closeModal();
     this.clearForm();
   }
 
@@ -63,7 +63,7 @@ export class LoginComponent implements OnInit {
   }
 
   closeModal() {
-    this.modal.hide();
+    this.activeModal.close();
   }
 
 }

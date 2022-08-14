@@ -38,8 +38,7 @@
               typeButton="button"
               [isDisabled]="false"
               classButton="btn-custom"
-              data-bs-toggle="modal"
-              data-bs-target="#modalLogin">
+              (clickEvent)="onOpenModal()">
             </app-button>
             <app-button
               *ngIf="isLoggedIn$ | async"
@@ -56,8 +55,3 @@
     </div>
   </div>
 </nav>
-
-<!-- Modal Login -->
-<app-login
-  title="Login">
-</app-login>

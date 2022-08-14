@@ -12,3 +12,8 @@ export class UpdateFullnameAndTitleRequest {
   surname: string = '';
   title: string = '';
 }
+
+export class UpdateSummaryRequest {
+  id: number = 0;
+  summary: string = '';
+}

@@ -55,3 +55,15 @@ p {
     padding-top: 2rem;
   }
 }
+
+a {
+  text-decoration: none;
+  color: black;
+  font-size: 1.5rem;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #2A323D;
+  font-size: 1.5rem;
+}
