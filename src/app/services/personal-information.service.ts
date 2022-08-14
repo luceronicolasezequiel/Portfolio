@@ -35,7 +35,5 @@ export class PersonalInformationService {
     });
     
     return observable;
-
-    // this.http.put<PersonalInformation>(endpointUrl, request, { headers: this.globalService.getHeadersWithToken() });
   }
 }
