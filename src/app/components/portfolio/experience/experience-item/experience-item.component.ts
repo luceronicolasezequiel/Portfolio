@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { of } from 'rxjs';
@@ -16,6 +16,7 @@ import { ExperienceEditComponent } from '../experience-edit/experience-edit.comp
 export class ExperienceItemComponent implements OnInit {
 
   @Input() experience: Experience = { id: 0, position: '', organization: '', periodFrom: '', periodTo: '' };
+  @Output() updateEvent = new EventEmitter();
 
   tasks: Task[] = [];
   isLoggedIn$ = of(false);
@@ -56,9 +57,9 @@ export class ExperienceItemComponent implements OnInit {
 
     modalRef.result.then(
       (result) => {
-        console.log(result);
         if (result) {
           this.experience = result;
+          this.updateEvent.emit();
         }
       },
       (reason) => {}

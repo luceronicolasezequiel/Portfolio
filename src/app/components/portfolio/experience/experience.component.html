@@ -10,6 +10,7 @@
           class="box"
           *ngFor="let experience of experiences"
           [experience]="experience"
+          (updateEvent)="getExperiences()"
         ></app-experience-item>
       </div>
     </div>

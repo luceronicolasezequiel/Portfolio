@@ -54,7 +54,6 @@ export class AboutMeComponent implements OnInit {
 
     modalRef.result.then(
       (result) => {
-        console.log(result);
         if (result) {
           this.personalInformation = result;
         }
