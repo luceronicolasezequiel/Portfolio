@@ -58,12 +58,12 @@ p {
 
 a {
   text-decoration: none;
-  color: black;
+  color: #04B45F;
   font-size: 1.5rem;
 }
 
 a:hover {
   text-decoration: none;
-  color: #2A323D;
+  color: #04c86b;
   font-size: 1.5rem;
 }

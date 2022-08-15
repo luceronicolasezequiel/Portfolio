@@ -1,4 +1,3 @@
-import { Hability } from "./hability";
 import { Task } from "./task";
 
 export interface Experience {
@@ -11,6 +10,14 @@ export interface Experience {
 }
 
 export class CreateExperienceRequest {
+  position: string = '';
+  organization: string = '';
+  periodFrom: string = '';
+  periodTo: string = '';
+}
+
+export class UpdateExperienceRequest {
+  id: number = 0;
   position: string = '';
   organization: string = '';
   periodFrom: string = '';

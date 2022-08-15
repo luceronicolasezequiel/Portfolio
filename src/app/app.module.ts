@@ -6,6 +6,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { SharedModule } from './components/shared/shared.module';
@@ -20,6 +21,7 @@ import { AboutMeComponent } from './components/portfolio/about-me/about-me.compo
 import { AboutMeEditComponent } from './components/portfolio/about-me/about-me-edit/about-me-edit.component';
 import { ExperienceComponent } from './components/portfolio/experience/experience.component';
 import { ExperienceAddComponent } from './components/portfolio/experience/experience-add/experience-add.component';
+import { ExperienceEditComponent } from './components/portfolio/experience/experience-edit/experience-edit.component';
 import { ExperienceItemComponent } from './components/portfolio/experience/experience-item/experience-item.component';
 import { EducationComponent } from './components/portfolio/education/education.component';
 import { EducationItemComponent } from './components/portfolio/education/education-item/education-item.component';
@@ -41,6 +43,7 @@ import { FooterComponent } from './components/portfolio/footer/footer.component'
     AboutMeEditComponent,
     ExperienceComponent,
     ExperienceAddComponent,
+    ExperienceEditComponent,
     ExperienceItemComponent,
     EducationComponent,
     EducationItemComponent,
@@ -64,9 +67,10 @@ import { FooterComponent } from './components/portfolio/footer/footer.component'
     LoginComponent,
     PresentationEditComponent,
     AboutMeEditComponent,
-    ExperienceAddComponent
+    ExperienceAddComponent,
+    ExperienceEditComponent
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
