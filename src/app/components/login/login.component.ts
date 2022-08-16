@@ -44,7 +44,7 @@ export class LoginComponent implements OnInit {
         next: () => {
           this.closeModal();
           this.clearForm();
-          this.toastrService.success(`Login exitoso!`);
+          this.toastrService.success('Login exitoso!');
         },
         error: () => this.toastrService.error('Hubo un error al comprobar el usuario!')
       });

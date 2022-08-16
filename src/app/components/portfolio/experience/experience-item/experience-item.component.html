@@ -2,11 +2,34 @@
   {{experience.position}}&nbsp;
   <a
     *ngIf="(isLoggedIn$ | async)"
-    class="fa fa-pencil" title="Editar"
+    class="fa fa-pencil update" title="Editar Experiencia"
     (click)="onOpenModal()">
+  </a>&nbsp;
+  <a
+    *ngIf="(isLoggedIn$ | async)"
+    class="fa fa-trash delete" title="Eliminar Experiencia"
+    (click)="onDelete()">
   </a>
 </h2>
 <h3><strong>{{experience.organization}}</strong> ({{experience.periodFrom | date: 'MM/yyyy' : 'UTC +3'}} - {{(experience.periodTo != null && experience.periodTo != '') ? (experience.periodTo | date: 'MM/yyyy' : 'UTC +3') : 'al presente'}})</h3>
+<a *ngIf="(isLoggedIn$ | async)" class="add-secondary" title="Agregar Tarea" (click)="onOpenModalTaskAdd()">
+  <i class="fa fa-plus"></i> Agregar Tarea
+</a>
+<p class="no-content" *ngIf="tasks.length == 0">
+  No hay Tareas.
+</p>
 <ul class="task">
-  <li *ngFor="let task of tasks">{{task.name}}</li>
+  <li *ngFor="let task of tasks">
+    {{task.name}}&nbsp;
+    <a
+      *ngIf="(isLoggedIn$ | async)"
+      class="fa fa-pencil update" title="Editar Tarea"
+      (click)="onOpenModalTaskEdit(task)">
+    </a>&nbsp;
+    <a
+      *ngIf="(isLoggedIn$ | async)"
+      class="fa fa-trash delete" title="Eliminar Tarea"
+      (click)="onTaskDelete(task)">
+    </a>
+  </li>
 </ul>

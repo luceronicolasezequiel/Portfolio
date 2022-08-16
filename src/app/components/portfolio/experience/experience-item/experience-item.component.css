@@ -15,6 +15,7 @@ h2 {
 
 h3 {
   font-family: 'Encode Sans', sans-serif;
+  margin-bottom: 1.3rem;
 }
 
 ul {
@@ -22,14 +23,9 @@ ul {
   font-size: 1.2rem;
 }
 
-a {
-  text-decoration: none;
-  color: #04B45F;
-  font-size: 1.5rem;
-}
-
-a:hover {
-  text-decoration: none;
-  color: #04c86b;
-  font-size: 1.5rem;
+.no-content {
+  margin-top: 1rem;
+  text-align: center;
+  font-family: 'Encode Sans', sans-serif;
+  font-size: 1.2rem;
 }

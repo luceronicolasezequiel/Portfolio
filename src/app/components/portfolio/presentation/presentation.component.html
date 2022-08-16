@@ -8,7 +8,7 @@
             {{personalInformation.surname}}&nbsp;{{personalInformation.name}}&nbsp;
             <a
               *ngIf="(isLoggedIn$ | async)"
-              class="fa fa-pencil" title="Editar"
+              class="fa fa-pencil update" title="Editar"
               (click)="onOpenModal()">
             </a>
           </h1>

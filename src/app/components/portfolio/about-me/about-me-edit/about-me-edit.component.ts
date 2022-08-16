@@ -49,7 +49,7 @@ export class AboutMeEditComponent implements OnInit {
         next: (response) => {
           this.closeModalWithData(response);
           this.clearForm();
-          this.toastrService.success(`Datos personales actualizados con éxito!`);
+          this.toastrService.success('Datos personales actualizados con éxito!');
         },
         error: (err) => this.toastrService.error('Hubo un error al comprobar la información personal!')
       });

@@ -63,7 +63,7 @@ export class ExperienceEditComponent implements OnInit {
         next: (response) => {
           this.closeModalWithData(response);
           this.clearForm();
-          this.toastrService.success(`Experiencia actualizada con éxito!`);
+          this.toastrService.success('Experiencia actualizada con éxito!');
         },
         error: (err) => this.toastrService.error('Hubo un error al actualizar la experiencia!')
       });

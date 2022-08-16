@@ -23,6 +23,8 @@ import { ExperienceComponent } from './components/portfolio/experience/experienc
 import { ExperienceAddComponent } from './components/portfolio/experience/experience-add/experience-add.component';
 import { ExperienceEditComponent } from './components/portfolio/experience/experience-edit/experience-edit.component';
 import { ExperienceItemComponent } from './components/portfolio/experience/experience-item/experience-item.component';
+import { TaskAddComponent } from './components/portfolio/experience/experience-item/task-add/task-add.component';
+import { TaskEditComponent } from './components/portfolio/experience/experience-item/task-edit/task-edit.component';
 import { EducationComponent } from './components/portfolio/education/education.component';
 import { EducationItemComponent } from './components/portfolio/education/education-item/education-item.component';
 import { HabilityComponent } from './components/portfolio/hability/hability.component';
@@ -45,6 +47,8 @@ import { FooterComponent } from './components/portfolio/footer/footer.component'
     ExperienceAddComponent,
     ExperienceEditComponent,
     ExperienceItemComponent,
+    TaskAddComponent,
+    TaskEditComponent,
     EducationComponent,
     EducationItemComponent,
     HabilityComponent,
@@ -68,7 +72,9 @@ import { FooterComponent } from './components/portfolio/footer/footer.component'
     PresentationEditComponent,
     AboutMeEditComponent,
     ExperienceAddComponent,
-    ExperienceEditComponent
+    ExperienceEditComponent,
+    TaskAddComponent,
+    TaskEditComponent
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

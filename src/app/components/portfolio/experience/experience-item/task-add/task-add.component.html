@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="titleModalLabel">Tarea | Agregar</h5>
+  <button type="button" class="btn-close" data-dismiss="modal" (click)="onCancel()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form">
+    <input class="form-control" type="hidden" name="experienceId" id="experienceId" formControlName="experienceId">
+    <div class="mb-3">
+      <label class="form-label" for="name">Descripción</label>
+      <textarea class="form-control" type="text" name="name" id="name" formControlName="name" rows="3"
+              [ngClass]="{'is-invalid': this.name?.invalid && (this.name?.dirty || this.name?.touched),
+                          'is-valid': !this.name?.invalid && (this.name?.dirty || this.name?.touched)}">
+      </textarea>
+      <div *ngIf="this.name?.invalid && (this.name?.dirty || this.name?.touched)">
+        <p *ngIf="name?.errors?.['required']" class="validation text-danger">
+          La Descripción es requerida.
+        </p>
+        <p *ngIf="name?.errors?.['minlength'] || name?.errors?.['maxLength']" class="validation text-danger">
+          La Descripción debe tener entre 3 y 100 caracteres.
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <app-button
+    textButton="Guardar"
+    nameButton="save"
+    typeButton="button"
+    [isDisabled]="formIsInValid"
+    classButton="btn btn-dark"
+    (clickEvent)="onSave()">
+  </app-button>
+  <app-button
+    textButton="Cancelar"
+    nameButton="cancel"
+    typeButton="button"
+    [isDisabled]="false"
+    classButton="btn btn-secondary"
+    (clickEvent)="onCancel()"
+    data-dismiss="modal">
+  </app-button>
+</div>
