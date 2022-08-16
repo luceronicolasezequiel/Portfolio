@@ -1,0 +1,73 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="titleModalLabel">Educación | Editar</h5>
+  <button type="button" class="btn-close" data-dismiss="modal" (click)="onCancel()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form">
+    <input class="form-control" type="hidden" name="id" id="id" formControlName="id">
+    <div class="mb-3">
+      <label class="form-label" for="organization">Organización</label>
+      <input class="form-control" type="text" name="organization" id="organization" formControlName="organization"
+              [ngClass]="{'is-invalid': this.organization?.invalid && (this.organization?.dirty || this.organization?.touched),
+                          'is-valid': !this.organization?.invalid && (this.organization?.dirty || this.organization?.touched)}">
+      <div *ngIf="this.organization?.invalid && (this.organization?.dirty || this.organization?.touched)">
+        <p *ngIf="organization?.errors?.['required']" class="validation text-danger">
+          La Organización es requerido.
+        </p>
+        <p *ngIf="organization?.errors?.['minlength'] || organization?.errors?.['maxLength']" class="validation text-danger">
+          La Organización debe tener entre 2 y 60 caracteres.
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="title">Título</label>
+      <input class="form-control" type="text" name="title" id="title" formControlName="title"
+              [ngClass]="{'is-invalid': this.title?.invalid && (this.title?.dirty || this.title?.touched),
+                          'is-valid': !this.title?.invalid && (this.title?.dirty || this.title?.touched)}">
+      <div *ngIf="this.title?.invalid && (this.title?.dirty || this.title?.touched)">
+        <p *ngIf="title?.errors?.['required']" class="validation text-danger">
+          El Título es requerido.
+        </p>
+        <p *ngIf="title?.errors?.['minlength'] || title?.errors?.['maxLength']" class="validation text-danger">
+          El Título debe tener entre 5 y 100 caracteres.
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="periodFrom">Desde</label>
+      <input class="form-control" type="date" name="periodFrom" id="periodFrom" formControlName="periodFrom"
+              [ngClass]="{'is-invalid': this.periodFrom?.invalid && (this.periodFrom?.dirty || this.periodFrom?.touched),
+            'is-valid': !this.periodFrom?.invalid && (this.periodFrom?.dirty || this.periodFrom?.touched)}">
+      <div *ngIf="this.periodFrom?.invalid && (this.periodFrom?.dirty || this.periodFrom?.touched)">
+        <p *ngIf="periodFrom?.errors?.['required']" class="validation text-danger">
+          La fecha Desde es requerida.
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="periodTo">Hasta</label>
+      <input class="form-control" type="date" name="periodTo" id="periodTo" formControlName="periodTo"
+              [ngClass]="{'is-invalid': this.periodTo?.invalid && (this.periodTo?.dirty || this.periodTo?.touched),
+            'is-valid': !this.periodTo?.invalid && (this.periodTo?.dirty || this.periodTo?.touched)}">
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <app-button
+    textButton="Guardar"
+    nameButton="save"
+    typeButton="button"
+    [isDisabled]="formIsInValid"
+    classButton="btn btn-dark"
+    (clickEvent)="onSave()">
+  </app-button>
+  <app-button
+    textButton="Cancelar"
+    nameButton="cancel"
+    typeButton="button"
+    [isDisabled]="false"
+    classButton="btn btn-secondary"
+    (clickEvent)="onCancel()"
+    data-dismiss="modal">
+  </app-button>
+</div>

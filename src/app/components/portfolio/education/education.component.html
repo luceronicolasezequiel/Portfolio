@@ -13,6 +13,7 @@
           class="box"
           *ngFor="let education of educations"
           [education]="education"
+          (updateEvent)="getEducations()"
         ></app-education-item>
       </div>
     </div>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CreateEducationRequest, Education } from '../models/education';
+import { CreateEducationRequest, Education, UpdateEducationRequest } from '../models/education';
 import { GlobalService } from './global.service';
 
 @Injectable({
@@ -27,6 +27,21 @@ export class EducationService {
 
     const observable = new Observable(observer => {
       this.http.post<Education>(endpointUrl, request, { headers: this.globalService.getHeadersWithToken() }).subscribe(
+        response => {
+          observer.next(response);
+          observer.complete();
+        }
+      );
+    });
+
+    return observable;
+  }
+
+  update(request: UpdateEducationRequest): Observable<any> {
+    let endpointUrl = this.globalService.getApiUrl() + this.API_URL + '/update';
+
+    const observable = new Observable(observer => {
+      this.http.put<Education>(endpointUrl, request, { headers: this.globalService.getHeadersWithToken() }).subscribe(
         response => {
           observer.next(response);
           observer.complete();
