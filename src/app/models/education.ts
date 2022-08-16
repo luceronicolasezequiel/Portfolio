@@ -20,3 +20,7 @@ export class UpdateEducationRequest {
   periodFrom: string = '';
   periodTo: string = '';
 }
+
+export class DeleteEducationRequest {
+  id: number = 0;
+}
