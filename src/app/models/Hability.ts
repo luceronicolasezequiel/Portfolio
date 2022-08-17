@@ -14,3 +14,6 @@ export class UpdateHabilityRequest {
   name: string = '';
   percentage: number = 0;
 }
+export class DeleteHabilityRequest {
+  id: number = 0;
+}

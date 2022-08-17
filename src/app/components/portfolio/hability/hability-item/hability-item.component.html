@@ -12,4 +12,9 @@
     class="fa fa-pencil update" title="Editar Habilidad"
     (click)="onOpenModal()">
   </a>&nbsp;
+  <a
+    *ngIf="(isLoggedIn$ | async)"
+    class="fa fa-trash delete" title="Eliminar Habilidad"
+    (click)="onDelete(hability)">
+  </a>
 </div>

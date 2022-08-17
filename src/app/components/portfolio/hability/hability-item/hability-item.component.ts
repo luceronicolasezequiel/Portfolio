@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { of } from 'rxjs';
-import { Hability } from 'src/app/models/hability';
+import { DeleteHabilityRequest, Hability } from 'src/app/models/hability';
 import { AuthService } from 'src/app/services/auth.service';
 import { HabilityService } from 'src/app/services/hability.service';
 import { HabilityEditComponent } from '../hability-edit/hability-edit.component';
@@ -16,7 +16,8 @@ export class HabilityItemComponent implements OnInit {
 
   @Input() hability: Hability = { id: 0, name: '', percentage: 100 };
   @Output() updateEvent = new EventEmitter();
-  
+  @Output() deleteEvent = new EventEmitter();
+
   isLoggedIn$ = of(false);
   
   constructor(
@@ -51,6 +52,23 @@ export class HabilityItemComponent implements OnInit {
       },
       (reason) => {}
     );
+  }
+
+  onDelete(hability: Hability) {
+    try {
+      const request = new DeleteHabilityRequest();
+      request.id = hability.id;
+
+      this.habilityService.delete(request).subscribe({
+        next: () => {
+          this.deleteEvent.emit();
+          this.toastrService.success('Habilidad eliminada con éxito!');
+        },
+        error: (err) => this.toastrService.error('Hubo un error al eliminar la habilidad!')
+      });
+    } catch (error) {
+      this.toastrService.error('Error!', (error as Error).message);
+    }
   }
 
 }
