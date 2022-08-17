@@ -32,6 +32,7 @@ import { EducationEditComponent } from './components/portfolio/education/educati
 import { HabilityComponent } from './components/portfolio/hability/hability.component';
 import { HabilityItemComponent } from './components/portfolio/hability/hability-item/hability-item.component';
 import { HabilityAddComponent } from './components/portfolio/hability/hability-add/hability-add.component';
+import { HabilityEditComponent } from './components/portfolio/hability/hability-edit/hability-edit.component';
 import { ProyectComponent } from './components/portfolio/proyect/proyect.component';
 import { ProyectItemComponent } from './components/portfolio/proyect/proyect-item/proyect-item.component';
 import { FooterComponent } from './components/portfolio/footer/footer.component';
@@ -59,6 +60,7 @@ import { FooterComponent } from './components/portfolio/footer/footer.component'
     HabilityComponent,
     HabilityItemComponent,
     HabilityAddComponent,
+    HabilityEditComponent,
     ProyectComponent,
     ProyectItemComponent,
     FooterComponent
@@ -83,7 +85,8 @@ import { FooterComponent } from './components/portfolio/footer/footer.component'
     TaskEditComponent,
     EducationAddComponent,
     EducationEditComponent,
-    HabilityAddComponent
+    HabilityAddComponent,
+    HabilityEditComponent
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

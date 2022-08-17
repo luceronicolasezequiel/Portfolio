@@ -1,9 +1,10 @@
 <div class="modal-header">
-  <h5 class="modal-title" id="titleModalLabel">Habilidad | Agregar</h5>
+  <h5 class="modal-title" id="titleModalLabel">Habilidad | Editar</h5>
   <button type="button" class="btn-close" data-dismiss="modal" (click)="onCancel()"></button>
 </div>
 <div class="modal-body">
   <form [formGroup]="form">
+    <input class="form-control" type="hidden" name="id" id="id" formControlName="id">
     <div class="mb-3">
       <label class="form-label" for="name">Nombre</label>
       <input class="form-control" type="text" name="name" id="name" formControlName="name"

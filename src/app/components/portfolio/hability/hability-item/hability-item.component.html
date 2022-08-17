@@ -5,4 +5,11 @@
     <div class="fill"></div>
   </div>
 </div>
-<div class="name">{{hability.name}}</div>
+<div class="name">
+  {{hability.name}}&nbsp;
+  <a
+    *ngIf="(isLoggedIn$ | async)"
+    class="fa fa-pencil update" title="Editar Habilidad"
+    (click)="onOpenModal()">
+  </a>&nbsp;
+</div>
