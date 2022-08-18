@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
 import { of } from 'rxjs';
-import { Proyect } from 'src/app/models/proyect';
+import { DeleteProyectRequest, Proyect } from 'src/app/models/proyect';
 import { AuthService } from 'src/app/services/auth.service';
 import { ProyectService } from 'src/app/services/proyect.service';
 import { ProyectEditComponent } from '../proyect-edit/proyect-edit.component';
@@ -16,6 +16,7 @@ export class ProyectItemComponent implements OnInit {
 
   @Input() proyect: Proyect = { id: 0, name: '', dateRealization: '', description: '', urls: '' };
   @Output() updateEvent = new EventEmitter();
+  @Output() deleteEvent = new EventEmitter();
 
   isLoggedIn$ = of(false);
 
@@ -51,6 +52,23 @@ export class ProyectItemComponent implements OnInit {
       },
       (reason) => {}
     );
+  }
+
+  onDelete(proyect: Proyect) {
+    try {
+      const request = new DeleteProyectRequest();
+      request.id = proyect.id;
+
+      this.proyectService.delete(request).subscribe({
+        next: () => {
+          this.deleteEvent.emit();
+          this.toastrService.success('Proyecto eliminado con éxito!');
+        },
+        error: (err) => this.toastrService.error('Hubo un error al eliminar el proyecto!')
+      });
+    } catch (error) {
+      this.toastrService.error('Error!', (error as Error).message);
+    }
   }
 
 }

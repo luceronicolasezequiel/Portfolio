@@ -4,6 +4,11 @@
     *ngIf="(isLoggedIn$ | async)"
     class="fa fa-pencil update" title="Editar Proyecto"
     (click)="onOpenModal()">
+  </a>&nbsp;
+  <a
+    *ngIf="(isLoggedIn$ | async)"
+    class="fa fa-trash delete" title="Eliminar Proyecto"
+    (click)="onDelete(proyect)">
   </a>
 </h2>
 <h3>{{proyect.dateRealization | date: 'MM/yyyy' : 'UTC +3'}}</h3>

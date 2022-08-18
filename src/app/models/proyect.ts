@@ -20,3 +20,7 @@ export class UpdateProyectRequest {
   description: string = '';
   urls?: string;
 }
+
+export class DeleteProyectRequest {
+  id: number = 0;
+}
