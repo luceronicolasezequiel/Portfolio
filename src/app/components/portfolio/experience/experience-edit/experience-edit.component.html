@@ -14,7 +14,7 @@
         <p *ngIf="position?.errors?.['required']" class="validation text-danger">
           El Puesto es requerido.
         </p>
-        <p *ngIf="position?.errors?.['minlength'] || position?.errors?.['maxLength']" class="validation text-danger">
+        <p *ngIf="position?.errors?.['minlength'] || position?.errors?.['maxlength']" class="validation text-danger">
           El Puesto debe tener entre 3 y 60 caracteres.
         </p>
       </div>
@@ -28,7 +28,7 @@
         <p *ngIf="organization?.errors?.['required']" class="validation text-danger">
           La Organización es requerido.
         </p>
-        <p *ngIf="organization?.errors?.['minlength'] || organization?.errors?.['maxLength']" class="validation text-danger">
+        <p *ngIf="organization?.errors?.['minlength'] || organization?.errors?.['maxlength']" class="validation text-danger">
           La Organización debe tener entre 3 y 50 caracteres.
         </p>
       </div>

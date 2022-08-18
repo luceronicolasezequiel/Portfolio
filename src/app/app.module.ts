@@ -35,6 +35,7 @@ import { HabilityAddComponent } from './components/portfolio/hability/hability-a
 import { HabilityEditComponent } from './components/portfolio/hability/hability-edit/hability-edit.component';
 import { ProyectComponent } from './components/portfolio/proyect/proyect.component';
 import { ProyectItemComponent } from './components/portfolio/proyect/proyect-item/proyect-item.component';
+import { ProyectAddComponent } from './components/portfolio/proyect/proyect-add/proyect-add.component';
 import { FooterComponent } from './components/portfolio/footer/footer.component';
 
 @NgModule({
@@ -63,6 +64,7 @@ import { FooterComponent } from './components/portfolio/footer/footer.component'
     HabilityEditComponent,
     ProyectComponent,
     ProyectItemComponent,
+    ProyectAddComponent,
     FooterComponent
   ],
   imports: [
@@ -86,7 +88,8 @@ import { FooterComponent } from './components/portfolio/footer/footer.component'
     EducationAddComponent,
     EducationEditComponent,
     HabilityAddComponent,
-    HabilityEditComponent
+    HabilityEditComponent,
+    ProyectAddComponent
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

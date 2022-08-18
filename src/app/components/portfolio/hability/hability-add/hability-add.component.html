@@ -13,7 +13,7 @@
         <p *ngIf="name?.errors?.['required']" class="validation text-danger">
           El Nombre es requerido.
         </p>
-        <p *ngIf="name?.errors?.['minlength'] || name?.errors?.['maxLength']" class="validation text-danger">
+        <p *ngIf="name?.errors?.['minlength'] || name?.errors?.['maxlength']" class="validation text-danger">
           El Nombre debe tener entre 2 y 100 caracteres.
         </p>
       </div>

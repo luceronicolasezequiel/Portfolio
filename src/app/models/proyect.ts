@@ -5,3 +5,10 @@ export interface Proyect {
   description: string;
   urls: string;
 }
+
+export class CreateProyectRequest {
+  name: string = '';
+  dateRealization: string = '';
+  description: string = '';
+  urls?: string;
+}

@@ -16,7 +16,7 @@
         <p *ngIf="name?.errors?.['required']" class="validation text-danger">
           La Descripción es requerida.
         </p>
-        <p *ngIf="name?.errors?.['minlength'] || name?.errors?.['maxLength']" class="validation text-danger">
+        <p *ngIf="name?.errors?.['minlength'] || name?.errors?.['maxlength']" class="validation text-danger">
           La Descripción debe tener entre 3 y 100 caracteres.
         </p>
       </div>

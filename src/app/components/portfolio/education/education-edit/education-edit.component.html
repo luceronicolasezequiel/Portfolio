@@ -14,7 +14,7 @@
         <p *ngIf="organization?.errors?.['required']" class="validation text-danger">
           La Organización es requerido.
         </p>
-        <p *ngIf="organization?.errors?.['minlength'] || organization?.errors?.['maxLength']" class="validation text-danger">
+        <p *ngIf="organization?.errors?.['minlength'] || organization?.errors?.['maxlength']" class="validation text-danger">
           La Organización debe tener entre 2 y 60 caracteres.
         </p>
       </div>
@@ -28,7 +28,7 @@
         <p *ngIf="title?.errors?.['required']" class="validation text-danger">
           El Título es requerido.
         </p>
-        <p *ngIf="title?.errors?.['minlength'] || title?.errors?.['maxLength']" class="validation text-danger">
+        <p *ngIf="title?.errors?.['minlength'] || title?.errors?.['maxlength']" class="validation text-danger">
           El Título debe tener entre 5 y 100 caracteres.
         </p>
       </div>
