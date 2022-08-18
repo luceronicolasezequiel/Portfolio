@@ -13,6 +13,7 @@
           class="box"
           *ngFor="let proyect of proyects"
           [proyect]="proyect"
+          (updateEvent)="getProyects()"
         ></app-proyect-item>
       </div>
     </div>

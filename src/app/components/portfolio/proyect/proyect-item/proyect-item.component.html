@@ -1,4 +1,11 @@
-<h2>{{proyect.name}}</h2>
+<h2>
+  {{proyect.name}}&nbsp;
+  <a
+    *ngIf="(isLoggedIn$ | async)"
+    class="fa fa-pencil update" title="Editar Proyecto"
+    (click)="onOpenModal()">
+  </a>
+</h2>
 <h3>{{proyect.dateRealization | date: 'MM/yyyy' : 'UTC +3'}}</h3>
 <h4>{{proyect.description}}</h4>
 <h5>{{proyect.urls}}</h5>
