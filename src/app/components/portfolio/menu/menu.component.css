@@ -1,3 +1,10 @@
 .social li a {
   color: #CCEDD2;
 }
+
+.social .username {
+  font-family: Source Sans Pro,sans-serif;
+  font-size: 20px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
