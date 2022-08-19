@@ -4,6 +4,7 @@ export interface PersonalInformation {
   surname: string;
   title: string;
   summary: string;
+  profile: Array<number>;
 }
 
 export class UpdateFullnameAndTitleRequest {

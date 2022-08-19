@@ -15,7 +15,7 @@ import { AboutMeEditComponent } from './about-me-edit/about-me-edit.component';
 export class AboutMeComponent implements OnInit {
   @Input() title = '';
 
-  personalInformation: PersonalInformation = { name: '', surname: '', title: '', summary: '' };
+  personalInformation: PersonalInformation = { name: '', surname: '', title: '', summary: '', profile: [] };
   isLoggedIn$ = of(false);
   
   constructor(
