@@ -1,0 +1,41 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="titleModalLabel">Sobre Mi | Editar</h5>
+  <button type="button" class="btn-close" data-dismiss="modal" (click)="onCancel()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form">
+    <input class="form-control" type="hidden" name="id" id="id" formControlName="id">
+    <div class="mb-3">
+      <label class="form-label" for="profile">Imagen de Perfil</label>
+      <input type="file"
+        class="form-control" type="file" name="profile" id="profile" formControlName="profile"
+        (change)="onChangeProfile($event)" accept=".jpeg,.png,.jpg"
+        [ngClass]="{'is-invalid': this.profile?.invalid && (this.profile?.dirty || this.profile?.touched),
+                    'is-valid': !this.profile?.invalid && (this.profile?.dirty || this.profile?.touched)}">
+      <div *ngIf="this.profile?.invalid && (this.profile?.dirty || this.profile?.touched)">
+        <p *ngIf="profile?.errors?.['required']" class="validation text-danger">
+          La Imagen de Perfil es requerida.
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <app-button
+    textButton="Guardar"
+    nameButton="save"
+    typeButton="button"
+    [isDisabled]="formIsInValid"
+    classButton="btn btn-dark"
+    (clickEvent)="onSave()">
+  </app-button>
+  <app-button
+    textButton="Cancelar"
+    nameButton="cancel"
+    typeButton="button"
+    [isDisabled]="false"
+    classButton="btn btn-secondary"
+    (clickEvent)="onCancel()"
+    data-dismiss="modal">
+  </app-button>
+</div>

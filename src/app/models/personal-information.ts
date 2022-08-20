@@ -1,5 +1,5 @@
 export interface PersonalInformation {
-  id?: number;
+  id: number;
   name: string;
   surname: string;
   title: string;
@@ -12,6 +12,11 @@ export class UpdateFullnameAndTitleRequest {
   name: string = '';
   surname: string = '';
   title: string = '';
+}
+
+export class UpdateProfileRequest {
+  id: number = 0;
+  profile: File = new File([], '');
 }
 
 export class UpdateSummaryRequest {

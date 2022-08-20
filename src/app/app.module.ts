@@ -18,7 +18,8 @@ import { PortfolioComponent } from './components/portfolio/portfolio.component';
 import { PresentationComponent } from './components/portfolio/presentation/presentation.component';
 import { PresentationEditComponent } from './components/portfolio/presentation/presentation-edit/presentation-edit.component';
 import { AboutMeComponent } from './components/portfolio/about-me/about-me.component';
-import { AboutMeEditComponent } from './components/portfolio/about-me/about-me-edit/about-me-edit.component';
+import { AboutMeEditProfileComponent } from './components/portfolio/about-me/about-me-edit-profile/about-me-edit-profile.component';
+import { AboutMeEditGeneralComponent } from './components/portfolio/about-me/about-me-edit-general/about-me-edit-general.component';
 import { ExperienceComponent } from './components/portfolio/experience/experience.component';
 import { ExperienceAddComponent } from './components/portfolio/experience/experience-add/experience-add.component';
 import { ExperienceEditComponent } from './components/portfolio/experience/experience-edit/experience-edit.component';
@@ -48,7 +49,8 @@ import { FooterComponent } from './components/portfolio/footer/footer.component'
     PresentationComponent,
     PresentationEditComponent,
     AboutMeComponent,
-    AboutMeEditComponent,
+    AboutMeEditProfileComponent,
+    AboutMeEditGeneralComponent,
     ExperienceComponent,
     ExperienceAddComponent,
     ExperienceEditComponent,
@@ -82,7 +84,8 @@ import { FooterComponent } from './components/portfolio/footer/footer.component'
   entryComponents: [
     LoginComponent,
     PresentationEditComponent,
-    AboutMeEditComponent,
+    AboutMeEditProfileComponent,
+    AboutMeEditGeneralComponent,
     ExperienceAddComponent,
     ExperienceEditComponent,
     TaskAddComponent,

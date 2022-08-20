@@ -19,16 +19,26 @@
   align-items: center;
 }
 
-.img-profile {
-  text-align: center;
-  margin-top: auto;
-  margin-bottom: auto;
+.profile-img {
   margin-left: auto;
   margin-right: auto;
-  height: 25%;
-  width: 25%;
+  padding-left: auto;
+  padding-right: auto;
+  height: 15rem;
+  width: 15rem;
   min-height: 15rem;
   min-width: 15rem;
+  display: block;
+}
+
+.profile-edit {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: auto;
+  left: 55%;
+  top: -1rem;
+  position: relative;
+  z-index: 10;
 }
 
 p {
@@ -44,8 +54,7 @@ p {
     display:contents;
   }
 
-  .img-profile {
-    display: block;
+  .profile-img {
     margin-top: 0rem;
     margin-bottom: 0rem;
   }

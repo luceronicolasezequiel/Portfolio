@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { PersonalInformation, UpdateFullnameAndTitleRequest, UpdateSummaryRequest } from '../models/personal-information';
+import { PersonalInformation, UpdateFullnameAndTitleRequest, UpdateProfileRequest, UpdateSummaryRequest } from '../models/personal-information';
 import { GlobalService } from './global.service';
 
 @Injectable({
@@ -37,6 +37,26 @@ export class PersonalInformationService {
     return observable;
   }
 
+  updateProfile(request: UpdateProfileRequest): Observable<any> {
+    let endpointUrl = this.globalService.getApiUrl() + this.API_URL + '/updateProfile';
+    
+    const formData: FormData = new FormData();
+    formData.append('id', request.id.toString());
+    formData.append('profile', request.profile, request.profile?.name);
+
+    const observable = new Observable(observer => {
+      this.http.put<PersonalInformation>(endpointUrl, formData, { headers: this.globalService.getHeadersWithToken() }).subscribe(
+        response => {
+          observer.next(response);
+          observer.complete();
+        }
+      );
+    });
+    
+    return observable;
+  }
+
+
   updateSummary(request: UpdateSummaryRequest): Observable<any> {
     let endpointUrl = this.globalService.getApiUrl() + this.API_URL + '/updateSummary';
     
@@ -51,4 +71,5 @@ export class PersonalInformationService {
     
     return observable;
   }
+
 }

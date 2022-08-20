@@ -59,9 +59,9 @@ export class GlobalService {
     window.localStorage.removeItem(this.ACCESS_TOKEN);
   }
 
-  parseDate(dateString: string): string | null {
-    if (dateString) {
-        const date = new Date(dateString);
+  parseDate(request: string): string | null {
+    if (request) {
+        const date = new Date(request);
         const response = this.datePipe.transform(date, 'yyyy-MM-dd');
 
         return response;
