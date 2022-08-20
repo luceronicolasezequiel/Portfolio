@@ -42,7 +42,7 @@
 }
 
 p {
-  text-align: left;
+  text-align: justify;
   font-family: 'Encode Sans', sans-serif;
   font-size: 1.4rem;
   font-weight: bold;
@@ -60,7 +60,7 @@ p {
   }
 
   p {
-    text-align: center;
     padding-top: 2rem;
   }
+
 }
