@@ -53,7 +53,6 @@ export class ExperienceComponent implements OnInit {
 
     modalRef.result.then(
       (result) => {
-        console.log(result);
         if (result) {
           this.getExperiences();
         }

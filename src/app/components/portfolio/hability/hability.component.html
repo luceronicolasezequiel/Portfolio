@@ -2,11 +2,20 @@
   <div class="background">
     <div class="container">
       <h1 class="title">{{title}}</h1>
+      <a *ngIf="(isLoggedIn$ | async)" class="add" title="Agregar Habilidad" (click)="onOpenModal()">
+        <i class="fa fa-plus"></i> Agregar Habilidad
+      </a>
+      <p class="no-content" *ngIf="habilities.length == 0">
+        No hay habilidades.
+      </p>
       <div class="container-box">
         <app-hability-item
           class="box"
           *ngFor="let hability of habilities"
           [hability]="hability"
+          [attr.title]="hability.name"
+          (updateEvent)="getHabilities()"
+          (deleteEvent)="getHabilities()"
         ></app-hability-item>
       </div>
     </div>

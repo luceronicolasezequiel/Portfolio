@@ -1,2 +1,14 @@
-<h2>{{education.title}}</h2>
+<h2>
+  {{education.title}}&nbsp;
+  <a
+    *ngIf="(isLoggedIn$ | async)"
+    class="fa fa-pencil update" title="Editar Educación"
+    (click)="onOpenModal()">
+  </a>&nbsp;
+  <a
+    *ngIf="(isLoggedIn$ | async)"
+    class="fa fa-trash delete" title="Eliminar Educación"
+    (click)="onDelete(education)">
+  </a>
+</h2>
 <h3><strong>{{education.organization}}</strong> ({{education.periodFrom | date: 'MM/yyyy' : 'UTC +3'}} - {{(education.periodTo != null && education.periodTo != '') ? (education.periodTo | date: 'MM/yyyy' : 'UTC +3') : 'al presente'}})</h3>

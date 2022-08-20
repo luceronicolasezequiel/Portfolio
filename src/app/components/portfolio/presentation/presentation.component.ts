@@ -14,7 +14,7 @@ import { PresentationEditComponent } from './presentation-edit/presentation-edit
 })
 export class PresentationComponent implements OnInit {
 
-  personalInformation: PersonalInformation = { name: '', surname: '', title: '', summary: '' };
+  personalInformation: PersonalInformation = { id: 0, name: '', surname: '', title: '', summary: '', profile: [] };
   isLoggedIn$ = of(false);
 
   constructor(
@@ -53,7 +53,6 @@ export class PresentationComponent implements OnInit {
 
     modalRef.result.then(
       (result) => {
-        console.log(result);
         if (result) {
           this.personalInformation = result;
         }

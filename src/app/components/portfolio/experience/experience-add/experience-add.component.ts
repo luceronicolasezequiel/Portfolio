@@ -20,12 +20,14 @@ export class ExperienceAddComponent implements OnInit {
     private experienceService: ExperienceService,
     private toastrService: ToastrService
   ) {
+  
     this.form = this.formBuilder.group({
       position: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(60)]],
       organization: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       periodFrom: ['', [Validators.required]],
       periodTo: ['']
     });
+  
   }
 
   get position() { return this.form.get('position'); }
@@ -48,7 +50,7 @@ export class ExperienceAddComponent implements OnInit {
         next: (response) => {
           this.closeModalWithData(response);
           this.clearForm();
-          this.toastrService.success(`Experiencia registrada con éxito!`);
+          this.toastrService.success('Experiencia registrada con éxito!');
         },
         error: (err) => this.toastrService.error('Hubo un error al registrar la experiencia!')
       });

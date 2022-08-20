@@ -23,3 +23,56 @@ p.validation {
   padding-top: 0.3rem;
   font-size: 0.8rem;
 }
+
+a.add {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  padding: 1.2rem 1.2rem;
+  margin-left: 0.3rem;
+  font-family: 'Cabin', sans-serif;
+  background-color: #04B45F;
+  border-radius: 0.8rem;
+}
+
+a.add:hover {
+  background-color: #04c86b;
+}
+
+a.add-secondary {
+  text-decoration: none;
+  color: white;
+  font-size: 1rem;
+  padding: 0.8rem 0.8rem;
+  font-family: 'Cabin', sans-serif;
+  background-color: #04B45F;
+  border-radius: 0.5rem;
+}
+
+a.add-secondary:hover {
+  background-color: #04c86b;
+}
+
+a.update {
+  text-decoration: none;
+  color: #FF8033;
+  font-size: 1.5rem;
+}
+
+a.update:hover {
+  text-decoration: none;
+  color: #ff9553;
+  font-size: 1.5rem;
+}
+
+a.delete {
+  text-decoration: none;
+  color: #FF3933;
+  font-size: 1.5rem;
+}
+
+a.delete:hover {
+  text-decoration: none;
+  color: #ff5b56;
+  font-size: 1.5rem;
+}

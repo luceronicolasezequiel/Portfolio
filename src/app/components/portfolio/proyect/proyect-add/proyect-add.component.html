@@ -1,0 +1,79 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="titleModalLabel">Proyecto | Agregar</h5>
+  <button type="button" class="btn-close" data-dismiss="modal" (click)="onCancel()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form">
+    <div class="mb-3">
+      <label class="form-label" for="name">Nombre</label>
+      <input class="form-control" type="text" name="name" id="name" formControlName="name"
+              [ngClass]="{'is-invalid': this.name?.invalid && (this.name?.dirty || this.name?.touched),
+                          'is-valid': !this.name?.invalid && (this.name?.dirty || this.name?.touched)}">
+      <div *ngIf="this.name?.invalid && (this.name?.dirty || this.name?.touched)">
+        <p *ngIf="name?.errors?.['required']" class="validation text-danger">
+          El Nombre es requerido.
+        </p>
+        <p *ngIf="name?.errors?.['minlength'] || name?.errors?.['maxlength']" class="validation text-danger">
+          El Nombre debe tener entre 2 y 100 caracteres.
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="dateRealization">Fecha de Realización</label>
+      <input class="form-control" type="date" name="dateRealization" id="dateRealization" formControlName="dateRealization"
+              [ngClass]="{'is-invalid': this.dateRealization?.invalid && (this.dateRealization?.dirty || this.dateRealization?.touched),
+            'is-valid': !this.dateRealization?.invalid && (this.dateRealization?.dirty || this.dateRealization?.touched)}">
+      <div *ngIf="this.dateRealization?.invalid && (this.dateRealization?.dirty || this.dateRealization?.touched)">
+        <p *ngIf="dateRealization?.errors?.['required']" class="validation text-danger">
+          La fecha de Realización es requerida.
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="description">Descripción</label>
+      <textarea class="form-control" type="text" name="description" id="description" formControlName="description" rows="6"
+              [ngClass]="{'is-invalid': this.description?.invalid && (this.description?.dirty || this.description?.touched),
+                          'is-valid': !this.description?.invalid && (this.description?.dirty || this.description?.touched)}">
+      </textarea>
+      <div *ngIf="this.description?.invalid && (this.description?.dirty || this.description?.touched)">
+        <p *ngIf="description?.errors?.['required']" class="validation text-danger">
+          La Descripción es requerida.
+        </p>
+        <p *ngIf="description?.errors?.['minlength'] || description?.errors?.['maxlength']" class="validation text-danger">
+          La Descripción debe tener entre 5 y 400 caracteres.
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="urls">Enlace (URL)</label>
+      <textarea class="form-control" type="text" name="urls" id="urls" formControlName="urls" rows="4"
+              [ngClass]="{'is-invalid': this.urls?.invalid && (this.urls?.dirty || this.urls?.touched),
+                          'is-valid': !this.urls?.invalid && (this.urls?.dirty || this.urls?.touched)}">
+      </textarea>
+      <div *ngIf="this.urls?.invalid && (this.urls?.dirty || this.urls?.touched)">
+        <p *ngIf="urls?.errors?.['minlength'] || urls?.errors?.['maxlength']" class="validation text-danger">
+          El Enlace (URL) debe tener entre 5 y 400 caracteres.
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <app-button
+    textButton="Guardar"
+    nameButton="save"
+    typeButton="button"
+    [isDisabled]="formIsInValid"
+    classButton="btn btn-dark"
+    (clickEvent)="onSave()">
+  </app-button>
+  <app-button
+    textButton="Cancelar"
+    nameButton="cancel"
+    typeButton="button"
+    [isDisabled]="false"
+    classButton="btn btn-secondary"
+    (clickEvent)="onCancel()"
+    data-dismiss="modal">
+  </app-button>
+</div>

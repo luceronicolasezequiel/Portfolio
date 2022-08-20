@@ -5,11 +5,16 @@
       <a *ngIf="(isLoggedIn$ | async)" class="add" title="Agregar Experiencia" (click)="onOpenModal()">
         <i class="fa fa-plus"></i> Agregar Experiencia
       </a>
+      <p class="no-content" *ngIf="experiences.length == 0">
+        No hay experiencias.
+      </p>
       <div class="container-box">
         <app-experience-item
           class="box"
           *ngFor="let experience of experiences"
           [experience]="experience"
+          (updateEvent)="getExperiences()"
+          (deleteEvent)="getExperiences()"
         ></app-experience-item>
       </div>
     </div>

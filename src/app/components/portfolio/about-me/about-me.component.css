@@ -19,20 +19,30 @@
   align-items: center;
 }
 
-.img-profile {
-  text-align: center;
-  margin-top: auto;
-  margin-bottom: auto;
+.profile-img {
   margin-left: auto;
   margin-right: auto;
-  height: 25%;
-  width: 25%;
+  padding-left: auto;
+  padding-right: auto;
+  height: 15rem;
+  width: 15rem;
   min-height: 15rem;
   min-width: 15rem;
+  display: block;
+}
+
+.profile-edit {
+  height: 1.5rem;
+  width: 1.5rem;
+  margin: auto;
+  left: 55%;
+  top: -1rem;
+  position: relative;
+  z-index: 10;
 }
 
 p {
-  text-align: left;
+  text-align: justify;
   font-family: 'Encode Sans', sans-serif;
   font-size: 1.4rem;
   font-weight: bold;
@@ -44,26 +54,13 @@ p {
     display:contents;
   }
 
-  .img-profile {
-    display: block;
+  .profile-img {
     margin-top: 0rem;
     margin-bottom: 0rem;
   }
 
   p {
-    text-align: center;
     padding-top: 2rem;
   }
-}
 
-a {
-  text-decoration: none;
-  color: black;
-  font-size: 1.5rem;
-}
-
-a:hover {
-  text-decoration: none;
-  color: #2A323D;
-  font-size: 1.5rem;
 }

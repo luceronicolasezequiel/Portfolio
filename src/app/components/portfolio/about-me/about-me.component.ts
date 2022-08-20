@@ -5,7 +5,8 @@ import { of } from 'rxjs';
 import { PersonalInformation } from 'src/app/models/personal-information';
 import { AuthService } from 'src/app/services/auth.service';
 import { PersonalInformationService } from 'src/app/services/personal-information.service';
-import { AboutMeEditComponent } from './about-me-edit/about-me-edit.component';
+import { AboutMeEditGeneralComponent } from './about-me-edit-general/about-me-edit-general.component';
+import { AboutMeEditProfileComponent } from './about-me-edit-profile/about-me-edit-profile.component';
 
 @Component({
   selector: 'app-about-me',
@@ -15,8 +16,9 @@ import { AboutMeEditComponent } from './about-me-edit/about-me-edit.component';
 export class AboutMeComponent implements OnInit {
   @Input() title = '';
 
-  personalInformation: PersonalInformation = { name: '', surname: '', title: '', summary: '' };
+  personalInformation: PersonalInformation = { id: 0, name: '', surname: '', title: '', summary: '', profile: [] };
   isLoggedIn$ = of(false);
+  profile: string = '';
   
   constructor(
     public authService: AuthService,
@@ -33,16 +35,19 @@ export class AboutMeComponent implements OnInit {
   getPersonalInformation() {
     try {
       this.personalInformationService.getOne().subscribe({
-        next: (response) => this.personalInformation = response
+        next: (response) => {
+          this.personalInformation = response;
+          this.setProfile(this.personalInformation);
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);
     }
   }
 
-  onOpenModal() {
+  onOpenModalProfile() {
     const modalRef = this.modalService.open(
-      AboutMeEditComponent,
+      AboutMeEditProfileComponent,
       {
         scrollable: false,
         keyboard: false,
@@ -54,13 +59,39 @@ export class AboutMeComponent implements OnInit {
 
     modalRef.result.then(
       (result) => {
-        console.log(result);
+        if (result) {
+          this.personalInformation = result;
+          this.setProfile(this.personalInformation);
+        }
+      },
+      (reason) => {}
+    );
+  }
+
+  onOpenModalGeneral() {
+    const modalRef = this.modalService.open(
+      AboutMeEditGeneralComponent,
+      {
+        scrollable: false,
+        keyboard: false,
+        backdrop: 'static'
+      }
+    );
+
+    modalRef.componentInstance.personalInformation = this.personalInformation;
+
+    modalRef.result.then(
+      (result) => {
         if (result) {
           this.personalInformation = result;
         }
       },
       (reason) => {}
     );
+  }
+
+  setProfile(personalInformation: PersonalInformation) {
+    this.profile = 'data:image/png;base64,' + personalInformation.profile;
   }
 
 }

@@ -4,15 +4,20 @@
       <h1 class="title">{{title}}</h1>
       <div class="container-box">
         <div>
-          <img class="rounded-circle img-responsive img-profile" src="../assets/img/profile.jpeg">
+          <img class="rounded-circle img-responsive profile-img" loading="lazy" [src]="profile">
+          <a
+            *ngIf="(isLoggedIn$ | async)"
+            class="fa fa-pencil update profile-edit" title="Editar"
+            (click)="onOpenModalProfile()">
+          </a>
         </div>
         <div>
           <p>
             {{personalInformation.summary}}&nbsp;
             <a
               *ngIf="(isLoggedIn$ | async)"
-              class="fa fa-pencil" title="Editar"
-              (click)="onOpenModal()">
+              class="fa fa-pencil update" title="Editar"
+              (click)="onOpenModalGeneral()">
             </a>
           </p>
         </div>

@@ -2,11 +2,19 @@
   <div class="background">
     <div class="container">
       <h1 class="title">{{title}}</h1>
+      <a *ngIf="(isLoggedIn$ | async)" class="add" title="Agregar Proyecto" (click)="onOpenModal()">
+        <i class="fa fa-plus"></i> Agregar Proyecto
+      </a>
+      <p class="no-content" *ngIf="proyects.length == 0">
+        No hay proyectos.
+      </p>
       <div class="container-box">
         <app-proyect-item
           class="box"
           *ngFor="let proyect of proyects"
           [proyect]="proyect"
+          (updateEvent)="getProyects()"
+          (deleteEvent)="getProyects()"
         ></app-proyect-item>
       </div>
     </div>

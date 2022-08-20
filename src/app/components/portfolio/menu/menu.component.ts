@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { of } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
+import { GlobalService } from 'src/app/services/global.service';
 import { LoginComponent } from '../../login/login.component';
 
 @Component({
@@ -15,6 +16,7 @@ export class MenuComponent implements OnInit {
 
   constructor(
     public authService: AuthService,
+    public globalService: GlobalService,
     private modalService: NgbModal
   ) { }
 

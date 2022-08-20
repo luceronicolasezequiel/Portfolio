@@ -2,11 +2,19 @@
   <div class="background">
     <div class="container">
       <h1 class="title">{{title}}</h1>
+      <a *ngIf="(isLoggedIn$ | async)" class="add" title="Agregar Educación" (click)="onOpenModal()">
+        <i class="fa fa-plus"></i> Agregar Educación
+      </a>
+      <p class="no-content" *ngIf="educations.length == 0">
+        No hay educación.
+      </p>
       <div class="container-box">
         <app-education-item
           class="box"
           *ngFor="let education of educations"
           [education]="education"
+          (updateEvent)="getEducations()"
+          (deleteEvent)="getEducations()"
         ></app-education-item>
       </div>
     </div>

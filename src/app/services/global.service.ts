@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -9,7 +10,9 @@ export class GlobalService {
   private USER_NAME = 'userName';
   private ACCESS_TOKEN = 'accessToken';
 
-  constructor() { }
+  constructor(
+    private datePipe: DatePipe
+  ) { }
 
   getApiUrl(): string {
     return 'http://localhost:9091/api';
@@ -54,6 +57,17 @@ export class GlobalService {
 
   removeAccessToken() {
     window.localStorage.removeItem(this.ACCESS_TOKEN);
+  }
+
+  parseDate(request: string): string | null {
+    if (request) {
+        const date = new Date(request);
+        const response = this.datePipe.transform(date, 'yyyy-MM-dd');
+
+        return response;
+    }
+    
+    return null;
   }
 
 }

@@ -2,18 +2,18 @@ import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrService } from 'ngx-toastr';
-import { PersonalInformation, UpdateSummaryRequest } from 'src/app/models/personal-information';
+import { PersonalInformation, UpdateProfileRequest } from 'src/app/models/personal-information';
 import { PersonalInformationService } from 'src/app/services/personal-information.service';
 
 @Component({
-  selector: 'app-about-me-edit',
-  templateUrl: './about-me-edit.component.html',
-  styleUrls: ['./about-me-edit.component.css']
+  selector: 'app-about-me-edit-profile',
+  templateUrl: './about-me-edit-profile.component.html',
+  styleUrls: ['./about-me-edit-profile.component.css']
 })
-export class AboutMeEditComponent implements OnInit {
+export class AboutMeEditProfileComponent implements OnInit {
 
   @Input() personalInformation!: PersonalInformation;
-
+  
   form: FormGroup;
   
   constructor(
@@ -22,36 +22,40 @@ export class AboutMeEditComponent implements OnInit {
     private personalInformationService: PersonalInformationService,
     private toastrService: ToastrService
   ) {
-
+    
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
-      summary: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(1000)]]
+      profile: ['', [Validators.required]]
     });
 
   }
 
   get id() { return this.form.get('id'); }
-  get summary() { return this.form.get('summary'); }
+  get profile() { return this.form.get('profile'); }
   get formIsInValid() { return this.form.invalid; }
 
   ngOnInit(): void {
     this.form.get('id')?.setValue(this.personalInformation.id);
-    this.form.get('summary')?.setValue(this.personalInformation.summary);
+  }
+
+  onChangeProfile($event: Event) {
+    const file = ($event.target as HTMLInputElement).files![0];
+    this.form.get('profile')?.setValue(file);
   }
 
   onSave() {
     try {
-      const request = new UpdateSummaryRequest();
+      const request = new UpdateProfileRequest();
       request.id = this.id?.value;
-      request.summary = this.summary?.value;
+      request.profile = this.profile?.value;
 
-      this.personalInformationService.updateSummary(request).subscribe({
+      this.personalInformationService.updateProfile(request).subscribe({
         next: (response) => {
           this.closeModalWithData(response);
           this.clearForm();
-          this.toastrService.success(`Datos personales actualizados con éxito!`);
+          this.toastrService.success('Imagen de Perfil actualizado con éxito!');
         },
-        error: (err) => this.toastrService.error('Hubo un error al comprobar la información personal!')
+        error: (err) => this.toastrService.error('Hubo un error al actualizar la imagen de perfil!')
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

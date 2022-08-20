@@ -15,9 +15,17 @@ h2 {
 
 h3 {
   font-family: 'Encode Sans', sans-serif;
+  margin-bottom: 1.3rem;
 }
 
 ul {
+  font-family: 'Encode Sans', sans-serif;
+  font-size: 1.2rem;
+}
+
+.no-content {
+  margin-top: 1rem;
+  text-align: center;
   font-family: 'Encode Sans', sans-serif;
   font-size: 1.2rem;
 }

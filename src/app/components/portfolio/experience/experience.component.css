@@ -12,21 +12,6 @@
   font-family: 'Bebas Neue', cursive;
 }
 
-.add {
-  text-decoration: none;
-  color: white;
-  font-size: 1.2rem;
-  padding: 1.2rem 1.2rem;
-  margin-left: 0.3rem;
-  font-family: 'Cabin', sans-serif;
-  background-color: #04B45F;
-  border-radius: 0.8rem;
-}
-
-.add:hover {
-  background-color: #04c86b;
-}
-
 .container-box {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -41,6 +26,13 @@
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.1);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.no-content {
+  margin-top: 1rem;
+  text-align: center;
+  font-family: 'Encode Sans', sans-serif;
+  font-size: 2rem;
 }
 
 @media (min-width: 280px) and (max-width: 767px) {

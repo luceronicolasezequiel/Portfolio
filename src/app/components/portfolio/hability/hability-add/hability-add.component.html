@@ -1,0 +1,55 @@
+<div class="modal-header">
+  <h5 class="modal-title" id="titleModalLabel">Habilidad | Agregar</h5>
+  <button type="button" class="btn-close" data-dismiss="modal" (click)="onCancel()"></button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="form">
+    <div class="mb-3">
+      <label class="form-label" for="name">Nombre</label>
+      <input class="form-control" type="text" name="name" id="name" formControlName="name"
+              [ngClass]="{'is-invalid': this.name?.invalid && (this.name?.dirty || this.name?.touched),
+                          'is-valid': !this.name?.invalid && (this.name?.dirty || this.name?.touched)}">
+      <div *ngIf="this.name?.invalid && (this.name?.dirty || this.name?.touched)">
+        <p *ngIf="name?.errors?.['required']" class="validation text-danger">
+          El Nombre es requerido.
+        </p>
+        <p *ngIf="name?.errors?.['minlength'] || name?.errors?.['maxlength']" class="validation text-danger">
+          El Nombre debe tener entre 2 y 100 caracteres.
+        </p>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label" for="percentage">Porcentage</label>
+      <input class="form-control" type="number" name="percentage" id="percentage" formControlName="percentage"
+              [ngClass]="{'is-invalid': this.percentage?.invalid && (this.percentage?.dirty || this.percentage?.touched),
+                          'is-valid': !this.percentage?.invalid && (this.percentage?.dirty || this.percentage?.touched)}">
+      <div *ngIf="this.percentage?.invalid && (this.percentage?.dirty || this.percentage?.touched)">
+        <p *ngIf="percentage?.errors?.['required']" class="validation text-danger">
+          El Porcentage es requerido.
+        </p>
+        <p *ngIf="percentage?.errors?.['min'] || percentage?.errors?.['max']" class="validation text-danger">
+          El Porcentage debe estar comprendido entre 0 y 100.
+        </p>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <app-button
+    textButton="Guardar"
+    nameButton="save"
+    typeButton="button"
+    [isDisabled]="formIsInValid"
+    classButton="btn btn-dark"
+    (clickEvent)="onSave()">
+  </app-button>
+  <app-button
+    textButton="Cancelar"
+    nameButton="cancel"
+    typeButton="button"
+    [isDisabled]="false"
+    classButton="btn btn-secondary"
+    (clickEvent)="onCancel()"
+    data-dismiss="modal">
+  </app-button>
+</div>
