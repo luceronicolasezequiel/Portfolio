@@ -16,11 +16,9 @@ footer p {
 .sections {
 	list-style-type: none;
 	padding: 0rem;
-	display: table;
 	margin-top: 0.6rem;
   margin-bottom: 2rem;
-	margin-right: auto;
-	margin-left: auto;
+  text-align: center;
 }
 
 .sections li {
@@ -40,11 +38,9 @@ footer p {
 .social {
 	list-style-type: none;
 	padding: 0rem;
-	display: table;
 	margin-top: 2rem;
   margin-bottom: 0.62rem;
-	margin-right: auto;
-	margin-left: auto;
+	text-align: center;
 }
 
 .social li {
@@ -52,6 +48,7 @@ footer p {
   padding-left: 0.62rem;
   padding-right: 0.62rem;
   padding-top: 0.62rem;
+  text-align: center;
 }
 
 .social li a {
