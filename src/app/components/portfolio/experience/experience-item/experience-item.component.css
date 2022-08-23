@@ -5,6 +5,7 @@ ul {
 
 ul.task li {
   margin-top: 1rem;
+  text-align: justify;
 }
 
 h2 {
