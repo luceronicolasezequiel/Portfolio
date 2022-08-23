@@ -14,7 +14,7 @@
           El Nombre es requerido.
         </p>
         <p *ngIf="name?.errors?.['minlength'] || name?.errors?.['maxlength']" class="validation text-danger">
-          El Nombre debe tener entre 2 y 100 caracteres.
+          El Nombre debe tener entre 2 y 150 caracteres.
         </p>
       </div>
     </div>
@@ -40,7 +40,7 @@
           La Descripción es requerida.
         </p>
         <p *ngIf="description?.errors?.['minlength'] || description?.errors?.['maxlength']" class="validation text-danger">
-          La Descripción debe tener entre 5 y 400 caracteres.
+          La Descripción debe tener entre 5 y 1000 caracteres.
         </p>
       </div>
     </div>

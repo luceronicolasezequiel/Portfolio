@@ -25,7 +25,7 @@ export class TaskAddComponent implements OnInit {
   ) {
 
     this.form = this.formBuilder.group({
-      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
+      name: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(300)]],
       experienceId: ['', [Validators.required]]
     });
 

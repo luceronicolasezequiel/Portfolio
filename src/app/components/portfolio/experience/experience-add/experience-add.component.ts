@@ -22,8 +22,8 @@ export class ExperienceAddComponent implements OnInit {
   ) {
   
     this.form = this.formBuilder.group({
-      position: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(60)]],
-      organization: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      position: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
+      organization: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(100)]],
       periodFrom: ['', [Validators.required]],
       periodTo: ['']
     });
