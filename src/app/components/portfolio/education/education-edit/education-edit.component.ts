@@ -59,7 +59,7 @@ export class EducationEditComponent implements OnInit {
       request.periodFrom = this.periodFrom?.value;
       request.periodTo = this.periodTo?.value;
 
-      this.educationService.create(request).subscribe({
+      this.educationService.update(request).subscribe({
         next: (response) => {
           this.closeModalWithData(response);
           this.clearForm();
