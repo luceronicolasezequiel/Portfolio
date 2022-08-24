@@ -27,9 +27,9 @@ export class ProyectEditComponent implements OnInit {
     
     this.form = this.formBuilder.group({
       id: ['', [Validators.required]],
-      name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+      name: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(150)]],
       dateRealization: ['', [Validators.required]],
-      description: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(400)]],
+      description: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(1000)]],
       urls: ['', [Validators.minLength(5), Validators.maxLength(400)]]
     });
 

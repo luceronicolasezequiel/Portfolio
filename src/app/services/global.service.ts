@@ -15,7 +15,7 @@ export class GlobalService {
   ) { }
 
   getApiUrl(): string {
-    return 'http://localhost:9091/api'; // https://portfolio-microservice.herokuapp.com/api
+    return 'https://portfolio-microservice.herokuapp.com/api'; // http://localhost:9091/api
   }
 
   getHeadersWithOutToken(): HttpHeaders {

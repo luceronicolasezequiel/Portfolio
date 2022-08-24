@@ -22,8 +22,8 @@ export class EducationAddComponent implements OnInit {
   ) {
 
     this.form = this.formBuilder.group({
-      organization: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(60)]],
-      title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(100)]],
+      organization: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
+      title: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(150)]],
       periodFrom: ['', [Validators.required]],
       periodTo: ['']
     });
