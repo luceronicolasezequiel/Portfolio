@@ -15,6 +15,7 @@ import { PresentationEditComponent } from './presentation-edit/presentation-edit
 export class PresentationComponent implements OnInit {
 
   personalInformation: PersonalInformation = { id: 0, name: '', surname: '', title: '', summary: '', profile: [] };
+  loading: boolean = false;
   isLoggedIn$ = of(false);
 
   constructor(
@@ -31,8 +32,13 @@ export class PresentationComponent implements OnInit {
 
   getPersonalInformation() {
     try {
+      this.loading = true;
+
       this.personalInformationService.getOne().subscribe({
-        next: (response) => this.personalInformation = response
+        next: (response) => {
+          this.personalInformation = response;
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

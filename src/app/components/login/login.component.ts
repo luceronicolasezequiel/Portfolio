@@ -13,6 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class LoginComponent implements OnInit {
   
   form: FormGroup;
+  loading: boolean = false;
 
   constructor(
     private activeModal: NgbActiveModal,
@@ -36,6 +37,8 @@ export class LoginComponent implements OnInit {
 
   onLogin() {
     try {
+      this.loading = true;
+
       const request = new LoginRequest();
       request.username = this.username?.value;
       request.password = this.password?.value;
@@ -45,8 +48,12 @@ export class LoginComponent implements OnInit {
           this.closeModal();
           this.clearForm();
           this.toastrService.success('Login exitoso!');
+          this.loading = false;
         },
-        error: () => this.toastrService.error('Hubo un error al comprobar el usuario!')
+        error: () => {
+          this.toastrService.error('Hubo un error al comprobar el usuario!');
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

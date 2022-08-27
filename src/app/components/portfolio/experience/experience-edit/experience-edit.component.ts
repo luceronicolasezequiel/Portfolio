@@ -16,7 +16,8 @@ export class ExperienceEditComponent implements OnInit {
   @Input() experience!: Experience;
 
   form: FormGroup;
-  
+  loading: boolean = false;
+
   constructor(
     private activeModal: NgbActiveModal,
     private formBuilder: FormBuilder,
@@ -52,6 +53,8 @@ export class ExperienceEditComponent implements OnInit {
 
   onSave() {
     try {
+      this.loading = true;
+
       const request = new UpdateExperienceRequest();
       request.id = this.id?.value;
       request.position = this.position?.value;
@@ -64,8 +67,12 @@ export class ExperienceEditComponent implements OnInit {
           this.closeModalWithData(response);
           this.clearForm();
           this.toastrService.success('Experiencia actualizada con éxito!');
+          this.loading = false;
         },
-        error: (err) => this.toastrService.error('Hubo un error al actualizar la experiencia!')
+        error: (err) => {
+          this.toastrService.error('Hubo un error al actualizar la experiencia!');
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

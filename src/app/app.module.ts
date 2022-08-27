@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxLoadingModule } from 'ngx-loading';
 import { ToastrModule } from 'ngx-toastr';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DatePipe } from '@angular/common';
@@ -77,6 +78,7 @@ import { FooterComponent } from './components/portfolio/footer/footer.component'
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgxLoadingModule.forRoot({}),
     ToastrModule.forRoot(),
     NgbModule,
     SharedModule

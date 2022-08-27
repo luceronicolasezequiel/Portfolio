@@ -16,6 +16,7 @@ export class TaskAddComponent implements OnInit {
   @Input() experience!: Experience;
   
   form: FormGroup;
+  loading: boolean = false;
 
   constructor(
     private activeModal: NgbActiveModal,
@@ -41,6 +42,8 @@ export class TaskAddComponent implements OnInit {
 
   onSave() {
     try {
+      this.loading = true;
+
       const request = new CreateTaskRequest();
       request.name = this.name?.value;
       request.experienceId = this.experienceId?.value;
@@ -50,8 +53,12 @@ export class TaskAddComponent implements OnInit {
           this.closeModalWithData(response);
           this.clearForm();
           this.toastrService.success('Tarea registrada con éxito!');
+          this.loading = false;
         },
-        error: (err) => this.toastrService.error('Hubo un error al registrar la tarea!')
+        error: (err) => {
+          this.toastrService.error('Hubo un error al registrar la tarea!');
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

@@ -13,6 +13,7 @@ import { ExperienceService } from 'src/app/services/experience.service';
 export class ExperienceAddComponent implements OnInit {
 
   form: FormGroup;
+  loading: boolean = false;
   
   constructor(
     private activeModal: NgbActiveModal,
@@ -40,6 +41,8 @@ export class ExperienceAddComponent implements OnInit {
 
   onSave() {
     try {
+      this.loading = true;
+
       const request = new CreateExperienceRequest();
       request.position = this.position?.value;
       request.organization = this.organization?.value;
@@ -51,8 +54,12 @@ export class ExperienceAddComponent implements OnInit {
           this.closeModalWithData(response);
           this.clearForm();
           this.toastrService.success('Experiencia registrada con éxito!');
+          this.loading = false;
         },
-        error: (err) => this.toastrService.error('Hubo un error al registrar la experiencia!')
+        error: (err) => {
+          this.toastrService.error('Hubo un error al registrar la experiencia!')
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

@@ -15,6 +15,7 @@ export class AboutMeEditProfileComponent implements OnInit {
   @Input() personalInformation!: PersonalInformation;
   
   form: FormGroup;
+  loading: boolean = false;
   
   constructor(
     private activeModal: NgbActiveModal,
@@ -45,6 +46,8 @@ export class AboutMeEditProfileComponent implements OnInit {
 
   onSave() {
     try {
+      this.loading = true;
+
       const request = new UpdateProfileRequest();
       request.id = this.id?.value;
       request.profile = this.profile?.value;
@@ -54,8 +57,12 @@ export class AboutMeEditProfileComponent implements OnInit {
           this.closeModalWithData(response);
           this.clearForm();
           this.toastrService.success('Imagen de Perfil actualizado con éxito!');
+          this.loading = false;
         },
-        error: (err) => this.toastrService.error('Hubo un error al actualizar la imagen de perfil!')
+        error: (err) => {
+          this.toastrService.error('Hubo un error al actualizar la imagen de perfil!');
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

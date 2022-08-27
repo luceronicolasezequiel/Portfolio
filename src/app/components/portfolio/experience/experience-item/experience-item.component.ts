@@ -23,6 +23,7 @@ export class ExperienceItemComponent implements OnInit {
   @Output() deleteEvent = new EventEmitter();
 
   tasks: Task[] = [];
+  loading: boolean = false;
   isLoggedIn$ = of(false);
 
   constructor(
@@ -40,8 +41,13 @@ export class ExperienceItemComponent implements OnInit {
 
   getTasks() {
     try {
+      this.loading = true;
+
       this.taskService.getByExperience(this.experience.id).subscribe({
-        next: (response) => this.tasks = response
+        next: (response) => {
+          this.tasks = response
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

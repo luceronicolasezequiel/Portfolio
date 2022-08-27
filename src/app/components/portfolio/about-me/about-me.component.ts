@@ -17,6 +17,7 @@ export class AboutMeComponent implements OnInit {
   @Input() title = '';
 
   personalInformation: PersonalInformation = { id: 0, name: '', surname: '', title: '', summary: '', profile: [] };
+  loading: boolean = false;
   isLoggedIn$ = of(false);
   profile: string = '';
   
@@ -34,10 +35,13 @@ export class AboutMeComponent implements OnInit {
 
   getPersonalInformation() {
     try {
+      this.loading = true;
+
       this.personalInformationService.getOne().subscribe({
         next: (response) => {
           this.personalInformation = response;
           this.setProfile(this.personalInformation);
+          this.loading = false;
         }
       });
     } catch (error) {

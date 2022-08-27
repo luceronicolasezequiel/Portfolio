@@ -15,6 +15,7 @@ export class AboutMeEditGeneralComponent implements OnInit {
   @Input() personalInformation!: PersonalInformation;
   
   form: FormGroup;
+  loading: boolean = false;
   
   constructor(
     private activeModal: NgbActiveModal,
@@ -41,6 +42,8 @@ export class AboutMeEditGeneralComponent implements OnInit {
 
   onSave() {
     try {
+      this.loading = true;
+
       const request = new UpdateSummaryRequest();
       request.id = this.id?.value;
       request.summary = this.summary?.value;
@@ -50,6 +53,7 @@ export class AboutMeEditGeneralComponent implements OnInit {
           this.closeModalWithData(response);
           this.clearForm();
           this.toastrService.success('Datos personales actualizados con éxito!');
+          this.loading = false;
         },
         error: (err) => this.toastrService.error('Hubo un error al actualizar la información personal!')
       });

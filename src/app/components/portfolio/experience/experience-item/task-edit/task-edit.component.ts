@@ -15,6 +15,7 @@ export class TaskEditComponent implements OnInit {
   @Input() task!: Task;
 
   form: FormGroup;
+  loading: boolean = false;
   
   constructor(
     private activeModal: NgbActiveModal,
@@ -44,6 +45,8 @@ export class TaskEditComponent implements OnInit {
 
   onSave() {
     try {
+      this.loading = true;
+
       const request = new UpdateTaskRequest();
       request.id = this.id?.value;
       request.name = this.name?.value;
@@ -54,8 +57,12 @@ export class TaskEditComponent implements OnInit {
           this.closeModalWithData(response);
           this.clearForm();
           this.toastrService.success('Tarea registrada con éxito!');
+          this.loading = false;
         },
-        error: (err) => this.toastrService.error('Hubo un error al registrar la tarea!')
+        error: (err) => {
+          this.toastrService.error('Hubo un error al registrar la tarea!');
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

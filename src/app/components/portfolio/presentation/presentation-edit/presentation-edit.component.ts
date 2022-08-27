@@ -15,6 +15,7 @@ export class PresentationEditComponent implements OnInit {
   @Input() personalInformation!: PersonalInformation;
 
   form: FormGroup;
+  loading: boolean = false;
 
   constructor(
     private activeModal: NgbActiveModal,
@@ -47,6 +48,8 @@ export class PresentationEditComponent implements OnInit {
 
   onSave() {
     try {
+      this.loading = true;
+
       const request = new UpdateFullnameAndTitleRequest();
       request.id = this.id?.value;
       request.name = this.name?.value;
@@ -58,8 +61,12 @@ export class PresentationEditComponent implements OnInit {
           this.closeModalWithData(response);
           this.clearForm();
           this.toastrService.success('Datos personales actualizados con éxito!');
+          this.loading = false;
         },
-        error: (err) => this.toastrService.error('Hubo un error al comprobar la información personal!')
+        error: (err) => {
+          this.toastrService.error('Hubo un error al comprobar la información personal!');
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);
