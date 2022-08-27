@@ -16,6 +16,7 @@ export class HabilityEditComponent implements OnInit {
   @Input() hability!: Hability;
 
   form: FormGroup;
+  loading: boolean = false;
 
   constructor(
     private activeModal: NgbActiveModal,
@@ -45,6 +46,8 @@ export class HabilityEditComponent implements OnInit {
 
   onSave() {
     try {
+      this.loading = true;
+
       const request = new UpdateHabilityRequest();
       request.id = this.id?.value;
       request.name = this.name?.value;
@@ -55,8 +58,12 @@ export class HabilityEditComponent implements OnInit {
           this.closeModalWithData(response);
           this.clearForm();
           this.toastrService.success('Habilidad actualizada con éxito!');
+          this.loading = false;
         },
-        error: (err) => this.toastrService.error('Hubo un error al actualizar la habilidad!')
+        error: (err) => {
+          this.toastrService.error('Hubo un error al actualizar la habilidad!');
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

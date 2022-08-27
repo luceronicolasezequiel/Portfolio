@@ -16,6 +16,7 @@ export class ProyectEditComponent implements OnInit {
   @Input() proyect!: Proyect;
 
   form: FormGroup;
+  loading: boolean = false;
 
   constructor(
     private activeModal: NgbActiveModal,
@@ -52,6 +53,8 @@ export class ProyectEditComponent implements OnInit {
 
   onSave() {
     try {
+      this.loading = true;
+
       const request = new UpdateProyectRequest();
       request.id = this.id?.value;
       request.name = this.name?.value;
@@ -64,8 +67,12 @@ export class ProyectEditComponent implements OnInit {
           this.closeModalWithData(response);
           this.clearForm();
           this.toastrService.success('Proyecto actualizado con éxito!');
+          this.loading = false;
         },
-        error: (err) => this.toastrService.error('Hubo un error al actualizar el proyecto!')
+        error: (err) => {
+          this.toastrService.error('Hubo un error al actualizar el proyecto!');
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

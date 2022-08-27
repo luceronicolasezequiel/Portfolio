@@ -16,6 +16,7 @@ export class EducationEditComponent implements OnInit {
   @Input() education!: Education;
 
   form: FormGroup;
+  loading: boolean = false;
   
   constructor(
     private activeModal: NgbActiveModal,
@@ -52,6 +53,8 @@ export class EducationEditComponent implements OnInit {
 
   onSave() {
     try {
+      this.loading = true;
+
       const request = new UpdateEducationRequest();
       request.id = this.id?.value;
       request.organization = this.organization?.value;
@@ -64,8 +67,12 @@ export class EducationEditComponent implements OnInit {
           this.closeModalWithData(response);
           this.clearForm();
           this.toastrService.success('Educación actualizada con éxito!');
+          this.loading = false;
         },
-        error: (err) => this.toastrService.error('Hubo un error al actualizar la educación!')
+        error: (err) => {
+          this.toastrService.error('Hubo un error al actualizar la educación!');
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

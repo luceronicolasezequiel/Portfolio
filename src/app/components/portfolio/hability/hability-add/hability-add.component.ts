@@ -13,6 +13,7 @@ import { HabilityService } from 'src/app/services/hability.service';
 export class HabilityAddComponent implements OnInit {
 
   form: FormGroup;
+  loading: boolean = false;
   
   constructor(
     private activeModal: NgbActiveModal,
@@ -36,6 +37,8 @@ export class HabilityAddComponent implements OnInit {
 
   onSave() {
     try {
+      this.loading = true;
+
       const request = new CreateHabilityRequest();
       request.name = this.name?.value;
       request.percentage = this.percentage?.value;
@@ -45,8 +48,12 @@ export class HabilityAddComponent implements OnInit {
           this.closeModalWithData(response);
           this.clearForm();
           this.toastrService.success('Habilidad registrada con éxito!');
+          this.loading = false;
         },
-        error: (err) => this.toastrService.error('Hubo un error al registrar la habilidad!')
+        error: (err) => {
+          this.toastrService.error('Hubo un error al registrar la habilidad!');
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

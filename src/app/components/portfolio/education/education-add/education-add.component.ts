@@ -13,6 +13,7 @@ import { EducationService } from 'src/app/services/education.service';
 export class EducationAddComponent implements OnInit {
 
   form: FormGroup;
+  loading: boolean = false;
 
   constructor(
     private activeModal: NgbActiveModal,
@@ -41,6 +42,8 @@ export class EducationAddComponent implements OnInit {
 
   onSave() {
     try {
+      this.loading = true;
+
       const request = new CreateEducationRequest();
       request.organization = this.organization?.value;
       request.title = this.title?.value;
@@ -52,8 +55,12 @@ export class EducationAddComponent implements OnInit {
           this.closeModalWithData(response);
           this.clearForm();
           this.toastrService.success('Educación registrada con éxito!');
+          this.loading = false;
         },
-        error: (err) => this.toastrService.error('Hubo un error al registrar la educación!')
+        error: (err) => {
+          this.toastrService.error('Hubo un error al registrar la educación!')
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

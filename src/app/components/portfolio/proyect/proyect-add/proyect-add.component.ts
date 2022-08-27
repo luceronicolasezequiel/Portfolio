@@ -13,6 +13,7 @@ import { ProyectService } from 'src/app/services/proyect.service';
 export class ProyectAddComponent implements OnInit {
 
   form: FormGroup;
+  loading: boolean = false;
   
   constructor(
     private activeModal: NgbActiveModal,
@@ -41,6 +42,8 @@ export class ProyectAddComponent implements OnInit {
 
   onSave() {
     try {
+      this.loading = true;
+
       const request = new CreateProyectRequest();
       request.name = this.name?.value;
       request.dateRealization = this.dateRealization?.value;
@@ -52,8 +55,12 @@ export class ProyectAddComponent implements OnInit {
           this.closeModalWithData(response);
           this.clearForm();
           this.toastrService.success('Proyecto registrado con éxito!');
+          this.loading = false;
         },
-        error: (err) => this.toastrService.error('Hubo un error al registrar el proyecto!')
+        error: (err) => {
+          this.toastrService.error('Hubo un error al registrar el proyecto!');
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);
