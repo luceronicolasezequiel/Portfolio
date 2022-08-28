@@ -16,6 +16,7 @@ export class EducationComponent implements OnInit {
 
   @Input() title = '';
 
+  loading: boolean = false;
   educations: Education[] = [];
   isLoggedIn$ = of(false);
 
@@ -33,8 +34,13 @@ export class EducationComponent implements OnInit {
 
   getEducations() {
     try {
+      this.loading = true;
+
       this.educationService.getAll().subscribe({
-        next: (response) => this.educations = response
+        next: (response) => {
+          this.educations = response;
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);
