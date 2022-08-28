@@ -4,15 +4,23 @@
       <h1 class="title">{{title}}</h1>
       <div class="container-box">
         <div>
-          <img class="rounded-circle img-responsive profile-img" loading="lazy" [src]="profile">
-          <a
-            *ngIf="(isLoggedIn$ | async)"
-            class="fa fa-pencil fa-3x update profile-edit" title="Editar"
-            (click)="onOpenModalProfile()">
-          </a>
+          <div *ngIf="personalInformation.profile.length == 0">
+            <img class="rounded-circle img-responsive profile-img" loading="lazy" src="../../../../assets/img/profile-default.png">
+          </div>
+          <div *ngIf="personalInformation.profile.length > 0">
+            <img class="rounded-circle img-responsive profile-img" loading="lazy" [src]="profile">
+            <a
+              *ngIf="(isLoggedIn$ | async)"
+              class="fa fa-pencil fa-3x update profile-edit" title="Editar"
+              (click)="onOpenModalProfile()">
+            </a>
+          </div>
         </div>
         <div>
-          <p>
+          <p *ngIf="personalInformation.summary == ''">
+            No hay resumen.
+          </p>
+          <p *ngIf="personalInformation.summary != ''">
             {{personalInformation.summary}}&nbsp;
             <a
               *ngIf="(isLoggedIn$ | async)"
