@@ -16,6 +16,7 @@ export class HabilityComponent implements OnInit {
 
   @Input() title = '';
 
+  loading: boolean = false;
   habilities: Hability[] = [];
   isLoggedIn$ = of(false);
 
@@ -33,8 +34,13 @@ export class HabilityComponent implements OnInit {
 
   getHabilities() {
     try {
+      this.loading = true;
+
       this.habilityService.getAll().subscribe({
-        next: (response) => this.habilities = response
+        next: (response) => {
+          this.habilities = response;
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

@@ -16,6 +16,7 @@ export class ExperienceComponent implements OnInit {
 
   @Input() title = '';
 
+  loading: boolean = false;
   experiences: Experience[] = [];
   isLoggedIn$ = of(false);
   
@@ -33,8 +34,13 @@ export class ExperienceComponent implements OnInit {
 
   getExperiences() {
     try {
+      this.loading = true;
+
       this.experienceService.getAll().subscribe({
-        next: (response) => this.experiences = response
+        next: (response) => {
+          this.experiences = response;
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);

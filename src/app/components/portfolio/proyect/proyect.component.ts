@@ -16,6 +16,7 @@ export class ProyectComponent implements OnInit {
 
   @Input() title = '';
 
+  loading: boolean = false;
   proyects: Proyect[] = [];
   isLoggedIn$ = of(false);
 
@@ -33,8 +34,13 @@ export class ProyectComponent implements OnInit {
 
   getProyects() {
     try {
+      this.loading = true;
+
       this.proyectService.getAll().subscribe({
-        next: (response) => this.proyects = response
+        next: (response) => {
+          this.proyects = response
+          this.loading = false;
+        }
       });
     } catch (error) {
       this.toastrService.error('Error!', (error as Error).message);
